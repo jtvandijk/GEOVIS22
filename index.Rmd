@@ -1,40 +1,231 @@
 --- 
-title: "RGS Annual International Conference"
-author: Dr Justin van Dijk^[[mappingdutchman.com](https://mappingdutchman.com/)], Dr Stefano De Sabbata^[[sdesabbata.github.io/](https://sdesabbata.github.io/)]
+title: "Analysis and visualisation of surname data"
+author: Created by [Justin van Dijk](https://mappingdutchman.com/)
 date: "Last modified: `r Sys.Date()`"
 site: bookdown::bookdown_site
-output: 
-  bookdown::gitbook:
-    includes:
-      in_header: header.html
+output: bookdown::gitbook
 documentclass: book
 link-citations: yes
-github-repo: "jtvandijk/RGSGIS22"
-description: "RGIS GIScience Research Group"
-url: 'https\://jtvandijk.github.io/RGSGIS22/'
+github-repo: "jtvandijk/GEOVIS22"
+description: "Geovisualisation Spring School."
+url: 'https\://jtvandijk.github.io/GEOG0014/'
 ---
 
-# Sponsored Sessions AIC 2022 
-<br />
+# (PART\*) Welcome {-}
+# Getting started {-}
 
-```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
-knitr::include_graphics('images/giscience-webinar-banner-v4.png') 
+```{r welcome, echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/surname_welcome.jpeg') 
 ```
 <br />
 
-The [Geographic Information Science Research Group](https://geoinfo.science/) (GIScRG) of the [Royal Geographical Society (with IBG)](https://www.rgs.org/) is a group of academics and practitioners interested in promoting GIScience, Geographic Data Science and GI Technology in geographical research, teaching and the workplace. 
+Welcome! In this session of the 2022 International Spring School on Visualisation we will be mapping **surnames** across Great Britain. The Lecture *What’s in a name? Visualising surname geographies in a GIS environment* should have given you a good introduction onto why we would want to do this, but in case you want some further details on previous work using surnames in an analytical context you may want to have a look at some of the papers in the **background reading** section listed below.
 
-The [RGS-IBG Annual International Conference](https://www.rgs.org/research/annual-international-conference/call/) regularly attracts over 2,000 geographers from around the world. This year, the conference is taking place at [Newcastle University](https://www.ncl.ac.uk/), with in-person, online, and hybrid ways to participate. 
+### Background readings {-}
+- Cheshire, J. and Longley, P. A. 2011. Identifying spatial concentrations of surnames. *International Journal of Geographical Information Science* 26(2), pp.309-325. [[Link]](https://doi.org/10.1080/13658816.2011.591291)
+- Kandt, J., Van Dijk, J. T., and Longley, P. A. 2020. Family name origins and inter-generational demographic change in Great Britain. *Annals of the American Association of Geographers* 110(6), pp.1726-1742. [[Link]](https://doi.org/10.1080/24694452.2020.1717328)
+- Lansley, G., Li, W. and Longley, P. A. 2019. Creating a linked consumer register for granular demographic analysis. *Journal of the Royal Statistical Society: Series A (Statistics in Society)* 182(4), pp.1587-1605. *Open access*. [[Link]](https://doi.org/10.1111/rssa.12476)
+- Longley, P. A., Van Dijk, J. T., and Lan, T. 2021. The geography of intergenerational social mobility in Britain. *Nature Communications* 12(6050). *Open access*. [[Link]](https://doi.org/10.1080/13658816.2011.591291)
+- Van Dijk, J. T., Lansley, G., and Longley, P. A. 2021  Using linked consumer registers to estimate residential moves in the United Kingdom. *Journal of the Royal Statistical Society: Series A (Statistics in Society)* 184(4), pp.1452-1474. *Open access*. [[Link]](https://doi.org/10.1111/rssa.12713)
+- Van Dijk, J. T. and Longley, P. A. 2020. Interactive display of surnames distributions in historic and contemporary Great Britain. *Journal of Maps* 16, pp.58-76. *Open access*.  [[Link]](https://doi.org/10.1080/17445647.2020.1746418) 
 
-This year the GIScRG is pleased to sponsor paper presentation sessions on the following topics that focus on geographic information science and tools, cartography, spatial analysis, critical GIS and related disciplines:
+### Session format {-}
+This computer practical consists of four sections. Each section should take you around **20 minutes** to complete, depending on your familiarity with GIS you may take longer or shorter. After each section you should pause, and we will jointly go through all the steps and instructions. This allows everyone without some GIS familiarity to catch-up, if necessary, and everyone with some GIS experience to play around with additional visualisation options and the opportunity to gain a more in-depth understanding of the processes and methods underlying these visualisations.
 
-* Session 1: [Innovative GI methods in safety and emergency services research](session-1-safety-and-emergency-services.html)
-* Session 2: [Deep learning applications in geography](session-2-deep-learning.html)
-* Session 3: [Dealing with uncertainty: Quality and Representation in the context of Big Data](session-3-big-data-quality.html)
-* Session 4: [Ethics within GIScience, including (but not limited to) the Locus Charter](session-4-ethics.html)
+Some general pointers:
 
-The deadline for abstract submission to each of these sessions is **March 18th, 2022.** Further to the paper sessions we also sponsor a [World Café](https://www.rgs.org/research/annual-international-conference/call/conference-session-formats/world-cafe/) session:
+- The instructions provided are based on [QGIS 3.16](https://qgis.org/en/site/forusers/download.html) (long term release) for [Windows](https://www.microsoft.com/en-gb/windows?r=1). These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operation systems (specifically [macOS](https://www.apple.com/uk/macos/monterey/)). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like. 
+- Read the instructions carefully and use the animated GIFs to determine what is happening in each of the individual steps, especially if there are some small differences between your own installation of QGIS and the instructions provided.
+- Use the Menu / Table of Contents / sidebar on the left-hand side of this page to navigate through the individual sections. 
+- Take your time. If you feel like you are falling behind, do not worry, try to get along as good as you can. This resource will remain available for the foreseeable future so you can always come back and try it again at your own pace.
 
-* Session 5: [Beyond the systems of geography information](session-5-world-café.html)
+:::note
+**Note** <br />
+You can hide and show the sidebar (Table of Contents) with the **Toggle Sidebar** button in the menu bar at the top of the page.
+:::
 
-Click on the link to access the details of each sessions and to find out how to contribute to the session. Please note that the RGS has strict limits to the contributions of each delegate (see [Contribution limits](https://www.rgs.org/research/annual-international-conference/call/guidance-for-presenters/#Contribution%20limits)). There is no formal limit to the number of sessions chaired or the number of co-authorships. However, sessions are normally understood as open to submission of papers. A session only composed by members of your own team is unlikely to be approved by the RGS.
+# (PART\*) Section 1 {-}
+# Loading data {-}
+## QGIS installation {-}
+Some of you may already have played around with some GIS software such as [ArcGIS](https://www.arcgis.com/index.html), but today we will be using the open-source GIS software suite [QGIS](https://www.qgis.org/en/site/). If you have not already done so, you can download a copy of QGIS to your own computer through the [QGIS webpage](https://qgis.org/en/site/forusers/download.html).
+
+```{r qgis-download, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Download page for QGIS. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_download.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/qgis_download.png')
+```
+
+:::note
+**Note** <br />
+The instructions provided are based on [QGIS 3.16](https://qgis.org/en/site/forusers/download.html) (long term release) for [Windows](https://www.microsoft.com/en-gb/windows?r=1). These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operation systems (specifically [macOS](https://www.apple.com/uk/macos/monterey/)). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.
+:::
+
+## Data preparation {-}
+We have prepared several data sets with the locations of the bearers of five different surnames (*Longley*, *Van Dijk*, *Novak*, *Smith*, and *Rossall*) that are present in Great Britain in 2016. In addition to the surname data, we also prepared a data set containing the simplified boundaries of Great Britain and a dataset containing the names of locations of several large cities. We will use these simplified boundaries and cities to contextualise our map. 
+
+:::note
+**Note** <br/>
+For privacy reasons the surname data you will be using are not actual data but are made to closely represent the actual data.
+:::
+
+Download both files to the `Downloads` folder on computer by following the links below.
+
+#### File download {-}
+| File                                                 | Type            | Link |
+| :------                                              | :------         | :------ |
+| XY locations for selected surnames                   | `zip` `csv`     | [Download](https://github.com/jtvandijk/GEOVIS22/tree/master/data/surname_data.zip){target="_blank"} |
+| XY locations of selected cities in Great Britain     | `zip` `shp`     | [Download](https://github.com/jtvandijk/GEOVIS22/tree/master/data/gb_cities.zip){target="_blank"} |
+| Simplified boundaries of Great Britain               | `zip` `shp`     | [Download](https://github.com/jtvandijk/GEOVIS22/tree/master/data/gb_outline.zip){target="_blank"} |
+
+After downloading all three files, go to your `Downloads` folder and make you unzip both files:
+
+- On Windows you can do this by right clicking on the `surname_data.zip` and `gb_outline.zip` folders and opting for **Extract all**. 
+- On macOS you can double click on the zipped folders to extract them. 
+
+The data, which was stored in a compressed format (`zip`), should now be extracted and ready for use within QGIS. Your `Downloads` folder should look something like this:
+
+```{r download-dir, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Your `Download` folder should now contain three **unzipped** folders containing our surname data and our reference data. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/download_dir.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/download_dir.png')
+```
+
+The final step we need to take is to copy our downloaded data to a new folder. In your `Documents` folder on your computer, create a new folder `GEOVIS22`. We will use this folder as our *working directory*. Now move all folders containing the surname data, the Great Britain outline data and the citie data that you unzipped from your `Downloads` folder to this new `GEOVIS22` folder. Your working directory should look like something like this:
+
+```{r wd-dir, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Your working directory is now all set up. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/wd_dir.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/wd_dir.png')
+```
+
+:::note
+**Note** <br/>
+The `gb_outline` and `gb_cities` files that we downloaded are something called a `shapefile.` A `shapefile` is a file that GIS software uses to store spatial data. In the case of a shapefile this is in actual fact a misnomer because a `shapefile` consists of a **collection of files**. Without going into detail: each of these files does something slightly different and the the software we will be using requires needs all of them in order to understand the data.
+:::
+
+## Adding data {-}
+Now we have downloaded and organised our data, we can open QGIS. QGIS is a free and open-source cross-platform desktop geographic information system application that supports viewing, editing, and analysis of geospatial data. Start QGIS. It may take a little while before QGIS has started, so be patient. Once opened, you will see the QGIS interface which will look something like this:
+
+```{r qgis-interface, echo=FALSE, fig.align='center', out.width='850pt', fig.cap=' The QGIS interface on Windows. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_interface.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/qgis_interface.png')
+```
+
+On the left hand sizes you see two panels: **Layers** and **Browser**. We do not really need the second one, so you can close it by clicking on the `x` if you like.
+
+We can now start by adding our data. We will start by adding our `gb_outline`. Click on **Layer** > **Add Layer** > **Add Vector Layer ...**. 
+
+```{r add-vector, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Adding vector data. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/add_vector.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/add_vector.png')
+```
+
+Click on the three dots (**...**) next to the **Vector Dataset(s)** box and navigate to your *working directory*. Then go into your `gb_outline` folder and click on the `gb_outline` file with the `SHP File` type.
+
+```{r add-shp, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Loading the `gb_outline` shapefile. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/add_shp.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/add_shp.png')
+```
+
+Click **Open**. Then click **Add**. If you get a message popping up saying something about "Select Transformations for gb_outline" just click on **OK**. Now **Close** the dialog box. You should now see the outline of Great Britain loaded:
+
+```{r gb-loaded, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Outline of Great Britain loaded. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/gb_loaded.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/gb_loaded.png')
+```
+
+Now repeat these steps for our `gb_cities` file, making sure again that inside your `gb_cities` folder you select the file with the `SHP File` type. You now will have both data loaded. One thing to note is that the colours of your `gb_outline` and `gb_cities` files may be different than the ones in the image - QGIS randomly picks a colour when a map layer is first loaded.
+
+Before doing anything else, now would be a good time to save our QGIS project. Go to **Project** > **Save as** and save your project in your *working directory* as `kde_map`.
+
+```{r save-project, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Saving your QGIS project. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/save_project.png){target="_blank"}'}
+knitr::include_graphics('images/geovis/save_project.png')
+```
+
+## Organising our layers {-}
+Now we have our first set of data loaded, we can reorganise them a little. In the **Layers** panel, we can drag the `gb_outline` layer on top of the `gb_cities` layer to change their order. We can also change a layer's colour (right click on `gb_outline` or `gb_cities` > **Properties ...** > change the colour under the **Symbology** tab), and zoom in and out of the map by scrolling:
+
+```{r organise-data, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Organising the order of our data and changing symbology. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/organise_data.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/organise_data.gif')
+```
+
+## Inspecting data in Excel {-}
+The next thing we want to do is have a closer look at the surname data before loading them too in QGIS. It is good practice to see how your data looks like before you take any further steps.
+
+:::note
+**Note** <br />
+The surname files that we downloaded are in a so-called `csv` format. `csv` stands for comma (or character) separated values. A `csv` file can be thought of as stripped down Excel spreadsheets in which every column of data is separated by a comma. If you open a `csv` file within Excel, however, it will look "normal".
+:::
+
+Navigate to your `working directory` and go to `surname_date`. Now open the `bearers_of_vandijk` file using Excel. 
+
+```{r inspect-data, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Inspecting our crime data `csv`. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/inspect_data.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/inspect_data.gif')
+```
+
+Our dataset only contains three columns with data: `name`, `x`, and `y`. The `x` and `y` columns contain the x-coordinate and y-coordinate of the recorded location of the individual bearer of the surname, respectively. For the connoisseur: coordinates are already projected in [EPSG 27700](EPSG 27700) (British National Grid). After inspecting the data, you can close Excel again. Make sure that you do **not** save the file.
+
+## Loading point data into QGIS {-}
+Now we know what we are dealing with, we can load our surname data into QGIS. To do so, there are several steps we need to take:
+
+- Go to **Layer** > **Add Layer** > **Add Delimited Text Layer ...**. Because our data is a `csv` file we need to load it as a file in which columns are delimited by a certain character; a comma in our case.
+- Click on the three dots (*...*) next to the **File name** box and navigate to your *working directory*. Then go into your `surname_data` folder and **Open** the `bearers_of_vandijk` file.
+- Under **Geometry Definitions** make sure that **X field** is set to `x` and **Y field** is set to `y`. Here we inform QGIS that we are dealing with locations.
+- Without going into further details, we need to tell QGIS in which projection our crime locations are recorded. With a projection QGIS will know how to plot the crime locations on their correct positions. To do so, still under **Geometry Definitions** tab, click on the **Select CRS** button. You will find this is directly next to the *invalid projection* message. In the **Filter** box type: `EPSG 27700`. Only one option should show up: `OSGB 1936 / British National Grid`. Select this option and click **OK**.
+- Now click **Add**. *For large datasets this may take a little bit of time!* Click **Close** to exit the dialog box.
+
+The **GIF** below summarises these steps:
+
+```{r load-surname-data, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Loading our surname data into QGIS. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/load_surname_data.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/load_surname_data.gif')
+```
+
+Here we now have the location of the bearer of every surname *Van Dijk* recorded in 2016 across Great Britain. We can zoom to the extent of the surname layer by right clicking on the `bearers_of_vandijk` layer and opting for **Zoom to Layer**:
+
+```{r zoom-surname, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Recorded location of every *Van Dijk* in 2016 in Great Britain. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/zoom_surname.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/zoom_surname.gif')
+```
+
+We now have all data we need to visualise our first surname dataset, and with this we have reached the end of **Section 1**.
+
+:::note
+**Note** <br />
+Do not forget to save your progress once a while!
+:::
+
+#### Extra tasks {-}
+In case you are fast, potentially because you have done some work in QGIS before, you can go ahead and try:
+
+- Loading one of the other surname datasets in the same fashion.
+- Change the colours of the different map layers to make the map look nicer.
+
+# (PART\*) Section 2 {-}
+# Basic visualisation {-}
+Basic heatmap
+
+# (PART\*) Section 3 {-}
+# KDE parametrisation {-}
+KDE calculations
+
+# (PART\*) Section 4 {-}
+# KDE map {-}
+Print view
+
+# (PART\*) Wrapping up {-}
+# Final considerations {-}
+
+## Before you leave {-}
+[Well done. You made it.](https://www.youtube.com/watch?v=Wmc8bQoL-J0) Unfortunately, we have arrived at the end of this session of the 2022 International Spring School on Visualisation. For everyone that have never made a map before: we hope that you enjoyed the process and continue to develop these skills in any of your future work. For everyone that have made maps before: we hope that you also enjoyed this process and specifically thought about maps and visualisation in a different way than you have done before. 
+
+## Further resources {-}
+If you are interested in developing your spatial analysis / visualisation skills / GIS skills further, more generally, do have a look at the following excellent (open source) resource that is available for QGIS:
+
+- QGIS training manual:  [[Link]](https://docs.qgis.org/3.16/en/docs/training_manual/index.html)
+
+If you are feeling more adventurous and want to move to some programming, you can also check out some more of the geospatial goodness that is available online:
+
+- Geocomputation with R: [[Link]](https://geocompr.robinlovelace.net/)
+- Intro to GIS and Spatial Analysis: [[Link]](https://mgimond.github.io/Spatial/index.html)
+- Geographic Data Science with Python: [[Link]](https://geographicdata.science/book/intro.html)
+
+If you want to see more surname visualisations, including geodemographic profiles, for surnames that are captured in some of our datasets we hold for Great Britain (as refered to in the Lecture), you probably want to check out:
+
+- GBNames: [[Link]](https://apps.cdrc.ac.uk/gbnames/)
+
+If you are interested in some of the (open source) datasets that the UK [Consumer Data Research Centre](https://www.cdrc.ac.uk/) holds, check out:
+
+- CDRC Data: [[Link]](https://data.cdrc.ac.uk/)
+
+## Further questions {-}
+If there is any further questions, you can contact me at j.t.vandijk [at] ucl.ac.uk.
+

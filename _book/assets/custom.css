@@ -37,16 +37,3 @@
   background-color: #e6f2ff;
   color: #525252;
 }
-
-/*--- links ---*/
-.book-body a {
-  color: #E45201 !important;
-}
-
-.summary a:hover {
-  color: #E45201 !important;
-}
-
-.book .book-summary ul.summary li.active>a {
-  color: #E45201 !important;
-}

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Loading data | Analysis and visualisation of surname data</title>
+  <meta name="description" content="Geovisualisation Spring School." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Loading data | Analysis and visualisation of surname data" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://jtvandijk.github.io/GEOG0014/" />
+  
+  <meta property="og:description" content="Geovisualisation Spring School." />
+  <meta name="github-repo" content="jtvandijk/GEOVIS22" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Loading data | Analysis and visualisation of surname data" />
+  
+  <meta name="twitter:description" content="Geovisualisation Spring School." />
+  
+
+<meta name="author" content="Created by Justin van Dijk" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="basic-visualisation.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo">
+<a href=""><img src="images/general/ucl_logo.png">
+</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Welcome</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#background-readings"><i class="fa fa-check"></i>Background readings</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#session-format"><i class="fa fa-check"></i>Session format</a></li>
+</ul></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i>Loading data</a>
+<ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#qgis-installation"><i class="fa fa-check"></i>QGIS installation</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#data-preparation"><i class="fa fa-check"></i>Data preparation</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#adding-data"><i class="fa fa-check"></i>Adding data</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#organising-our-layers"><i class="fa fa-check"></i>Organising our layers</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#inspecting-data-in-excel"><i class="fa fa-check"></i>Inspecting data in Excel</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-point-data-into-qgis"><i class="fa fa-check"></i>Loading point data into QGIS</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html"><i class="fa fa-check"></i>Basic visualisation</a></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i>KDE parametrisation</a></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="" data-path="kde-map.html"><a href="kde-map.html"><i class="fa fa-check"></i>KDE map</a></li>
+<li class="part"><span><b>Wrapping up</b></span></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
+<ul>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#before-you-leave"><i class="fa fa-check"></i>Before you leave</a></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#further-resources"><i class="fa fa-check"></i>Further resources</a></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#further-questions"><i class="fa fa-check"></i>Further questions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis and visualisation of surname data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loading-data" class="section level1 unnumbered">
+<h1>Loading data</h1>
+<div id="qgis-installation" class="section level2 unnumbered">
+<h2>QGIS installation</h2>
+<p>Some of you may already have played around with some GIS software such as <a href="https://www.arcgis.com/index.html">ArcGIS</a>, but today we will be using the open-source GIS software suite <a href="https://www.qgis.org/en/site/">QGIS</a>. If you have not already done so, you can download a copy of QGIS to your own computer through the <a href="https://qgis.org/en/site/forusers/download.html">QGIS webpage</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:qgis-download"></span>
+<img src="images/geovis/qgis_download.png" alt="Download page for QGIS. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_download.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 1: Download page for QGIS. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_download.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<div class="note">
+<p><strong>Note</strong> <br />
+The instructions provided are based on <a href="https://qgis.org/en/site/forusers/download.html">QGIS 3.16</a> (long term release) for <a href="https://www.microsoft.com/en-gb/windows?r=1">Windows</a>. These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operation systems (specifically <a href="https://www.apple.com/uk/macos/monterey/">macOS</a>). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.</p>
+</div>
+</div>
+<div id="data-preparation" class="section level2 unnumbered">
+<h2>Data preparation</h2>
+<p>We have prepared several data sets with the locations of the bearers of five different surnames (<em>Longley</em>, <em>Van Dijk</em>, <em>Novak</em>, <em>Smith</em>, and <em>Rossall</em>) that are present in Great Britain in 2016. In addition to the surname data, we also prepared a data set containing the simplified boundaries of Great Britain and a dataset containing the names of locations of several large cities. We will use these simplified boundaries and cities to contextualise our map.</p>
+<div class="note">
+<p><strong>Note</strong> <br/>
+For privacy reasons the surname data you will be using are not actual data but are made to closely represent the actual data.</p>
+</div>
+<p>Download both files to the <code>Downloads</code> folder on computer by following the links below.</p>
+<div id="file-download" class="section level4 unnumbered">
+<h4>File download</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">XY locations for selected surnames</td>
+<td align="left"><code>zip</code> <code>csv</code></td>
+<td align="left"><a href="https://github.com/jtvandijk/GEOVIS22/tree/master/data/surname_data.zip" target="_blank">Download</a></td>
+</tr>
+<tr class="even">
+<td align="left">XY locations of selected cities in Great Britain</td>
+<td align="left"><code>zip</code> <code>shp</code></td>
+<td align="left"><a href="https://github.com/jtvandijk/GEOVIS22/tree/master/data/gb_cities.zip" target="_blank">Download</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Simplified boundaries of Great Britain</td>
+<td align="left"><code>zip</code> <code>shp</code></td>
+<td align="left"><a href="https://github.com/jtvandijk/GEOVIS22/tree/master/data/gb_outline.zip" target="_blank">Download</a></td>
+</tr>
+</tbody>
+</table>
+<p>After downloading all three files, go to your <code>Downloads</code> folder and make you unzip both files:</p>
+<ul>
+<li>On Windows you can do this by right clicking on the <code>surname_data.zip</code> and <code>gb_outline.zip</code> folders and opting for <strong>Extract all</strong>.</li>
+<li>On macOS you can double click on the zipped folders to extract them.</li>
+</ul>
+<p>The data, which was stored in a compressed format (<code>zip</code>), should now be extracted and ready for use within QGIS. Your <code>Downloads</code> folder should look something like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:download-dir"></span>
+<img src="images/geovis/download_dir.png" alt="Your `Download` folder should now contain three **unzipped** folders containing our surname data and our reference data. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/download_dir.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 2: Your <code>Download</code> folder should now contain three <strong>unzipped</strong> folders containing our surname data and our reference data. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/download_dir.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>The final step we need to take is to copy our downloaded data to a new folder. In your <code>Documents</code> folder on your computer, create a new folder <code>GEOVIS22</code>. We will use this folder as our <em>working directory</em>. Now move all folders containing the surname data, the Great Britain outline data and the citie data that you unzipped from your <code>Downloads</code> folder to this new <code>GEOVIS22</code> folder. Your working directory should look like something like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:wd-dir"></span>
+<img src="images/geovis/wd_dir.png" alt="Your working directory is now all set up. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/wd_dir.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 3: Your working directory is now all set up. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/wd_dir.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<div class="note">
+<p><strong>Note</strong> <br/>
+The <code>gb_outline</code> and <code>gb_cities</code> files that we downloaded are something called a <code>shapefile.</code> A <code>shapefile</code> is a file that GIS software uses to store spatial data. In the case of a shapefile this is in actual fact a misnomer because a <code>shapefile</code> consists of a <strong>collection of files</strong>. Without going into detail: each of these files does something slightly different and the the software we will be using requires needs all of them in order to understand the data.</p>
+</div>
+</div>
+</div>
+<div id="adding-data" class="section level2 unnumbered">
+<h2>Adding data</h2>
+<p>Now we have downloaded and organised our data, we can open QGIS. QGIS is a free and open-source cross-platform desktop geographic information system application that supports viewing, editing, and analysis of geospatial data. Start QGIS. It may take a little while before QGIS has started, so be patient. Once opened, you will see the QGIS interface which will look something like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:qgis-interface"></span>
+<img src="images/geovis/qgis_interface.png" alt=" The QGIS interface on Windows. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_interface.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 4:  The QGIS interface on Windows. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_interface.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>On the left hand sizes you see two panels: <strong>Layers</strong> and <strong>Browser</strong>. We do not really need the second one, so you can close it by clicking on the <code>x</code> if you like.</p>
+<p>We can now start by adding our data. We will start by adding our <code>gb_outline</code>. Click on <strong>Layer</strong> &gt; <strong>Add Layer</strong> &gt; <strong>Add Vector Layer …</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:add-vector"></span>
+<img src="images/geovis/add_vector.png" alt="Adding vector data. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/add_vector.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 5: Adding vector data. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/add_vector.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Click on the three dots (<strong>…</strong>) next to the <strong>Vector Dataset(s)</strong> box and navigate to your <em>working directory</em>. Then go into your <code>gb_outline</code> folder and click on the <code>gb_outline</code> file with the <code>SHP File</code> type.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:add-shp"></span>
+<img src="images/geovis/add_shp.png" alt="Loading the `gb_outline` shapefile. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/add_shp.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 6: Loading the <code>gb_outline</code> shapefile. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/add_shp.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Click <strong>Open</strong>. Then click <strong>Add</strong>. If you get a message popping up saying something about “Select Transformations for gb_outline” just click on <strong>OK</strong>. Now <strong>Close</strong> the dialog box. You should now see the outline of Great Britain loaded:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gb-loaded"></span>
+<img src="images/geovis/gb_loaded.png" alt="Outline of Great Britain loaded. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/gb_loaded.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 7: Outline of Great Britain loaded. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/gb_loaded.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Now repeat these steps for our <code>gb_cities</code> file, making sure again that inside your <code>gb_cities</code> folder you select the file with the <code>SHP File</code> type. You now will have both data loaded. One thing to note is that the colours of your <code>gb_outline</code> and <code>gb_cities</code> files may be different than the ones in the image - QGIS randomly picks a colour when a map layer is first loaded.</p>
+<p>Before doing anything else, now would be a good time to save our QGIS project. Go to <strong>Project</strong> &gt; <strong>Save as</strong> and save your project in your <em>working directory</em> as <code>kde_map</code>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:save-project"></span>
+<img src="images/geovis/save_project.png" alt="Saving your QGIS project. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/save_project.png){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 8: Saving your QGIS project. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/save_project.png" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+</div>
+<div id="organising-our-layers" class="section level2 unnumbered">
+<h2>Organising our layers</h2>
+<p>Now we have our first set of data loaded, we can reorganise them a little. In the <strong>Layers</strong> panel, we can drag the <code>gb_outline</code> layer on top of the <code>gb_cities</code> layer to change their order. We can also change a layer’s colour (right click on <code>gb_outline</code> or <code>gb_cities</code> &gt; <strong>Properties …</strong> &gt; change the colour under the <strong>Symbology</strong> tab), and zoom in and out of the map by scrolling:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:organise-data"></span>
+<img src="images/geovis/organise_data.gif" alt="Organising the order of our data and changing symbology. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/organise_data.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 9: Organising the order of our data and changing symbology. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/organise_data.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+</div>
+<div id="inspecting-data-in-excel" class="section level2 unnumbered">
+<h2>Inspecting data in Excel</h2>
+<p>The next thing we want to do is have a closer look at the surname data before loading them too in QGIS. It is good practice to see how your data looks like before you take any further steps.</p>
+<div class="note">
+<p><strong>Note</strong> <br />
+The surname files that we downloaded are in a so-called <code>csv</code> format. <code>csv</code> stands for comma (or character) separated values. A <code>csv</code> file can be thought of as stripped down Excel spreadsheets in which every column of data is separated by a comma. If you open a <code>csv</code> file within Excel, however, it will look “normal”.</p>
+</div>
+<p>Navigate to your <code>working directory</code> and go to <code>surname_date</code>. Now open the <code>bearers_of_vandijk</code> file using Excel.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:inspect-data"></span>
+<img src="images/geovis/inspect_data.gif" alt="Inspecting our crime data `csv`. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/inspect_data.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 10: Inspecting our crime data <code>csv</code>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/inspect_data.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Our dataset only contains three columns with data: <code>name</code>, <code>x</code>, and <code>y</code>. The <code>x</code> and <code>y</code> columns contain the x-coordinate and y-coordinate of the recorded location of the individual bearer of the surname, respectively. For the connoisseur: coordinates are already projected in <a href="EPSG%2027700">EPSG 27700</a> (British National Grid). After inspecting the data, you can close Excel again. Make sure that you do <strong>not</strong> save the file.</p>
+</div>
+<div id="loading-point-data-into-qgis" class="section level2 unnumbered">
+<h2>Loading point data into QGIS</h2>
+<p>Now we know what we are dealing with, we can load our surname data into QGIS. To do so, there are several steps we need to take:</p>
+<ul>
+<li>Go to <strong>Layer</strong> &gt; <strong>Add Layer</strong> &gt; <strong>Add Delimited Text Layer …</strong>. Because our data is a <code>csv</code> file we need to load it as a file in which columns are delimited by a certain character; a comma in our case.</li>
+<li>Click on the three dots (<em>…</em>) next to the <strong>File name</strong> box and navigate to your <em>working directory</em>. Then go into your <code>surname_data</code> folder and <strong>Open</strong> the <code>bearers_of_vandijk</code> file.</li>
+<li>Under <strong>Geometry Definitions</strong> make sure that <strong>X field</strong> is set to <code>x</code> and <strong>Y field</strong> is set to <code>y</code>. Here we inform QGIS that we are dealing with locations.</li>
+<li>Without going into further details, we need to tell QGIS in which projection our crime locations are recorded. With a projection QGIS will know how to plot the crime locations on their correct positions. To do so, still under <strong>Geometry Definitions</strong> tab, click on the <strong>Select CRS</strong> button. You will find this is directly next to the <em>invalid projection</em> message. In the <strong>Filter</strong> box type: <code>EPSG 27700</code>. Only one option should show up: <code>OSGB 1936 / British National Grid</code>. Select this option and click <strong>OK</strong>.</li>
+<li>Now click <strong>Add</strong>. <em>For large datasets this may take a little bit of time!</em> Click <strong>Close</strong> to exit the dialog box.</li>
+</ul>
+<p>The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:load-surname-data"></span>
+<img src="images/geovis/load_surname_data.gif" alt="Loading our surname data into QGIS. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/load_surname_data.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 11: Loading our surname data into QGIS. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/load_surname_data.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Here we now have the location of the bearer of every surname <em>Van Dijk</em> recorded in 2016 across Great Britain. We can zoom to the extent of the surname layer by right clicking on the <code>bearers_of_vandijk</code> layer and opting for <strong>Zoom to Layer</strong>:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:zoom-surname"></span>
+<img src="images/geovis/zoom_surname.gif" alt="Recorded location of every *Van Dijk* in 2016 in Great Britain. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/zoom_surname.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 12: Recorded location of every <em>Van Dijk</em> in 2016 in Great Britain. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/zoom_surname.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>We now have all data we need to visualise our first surname dataset, and with this we have reached the end of <strong>Section 1</strong>.</p>
+<div class="note">
+<p><strong>Note</strong> <br />
+Do not forget to save your progress once a while!</p>
+</div>
+<div id="extra-tasks" class="section level4 unnumbered">
+<h4>Extra tasks</h4>
+<p>In case you are fast, potentially because you have done some work in QGIS before, you can go ahead and try:</p>
+<ul>
+<li>Loading one of the other surname datasets in the same fashion.</li>
+<li>Change the colours of the different map layers to make the map look nicer.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-visualisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtvandijk/GEOVIS22/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["https://github.com/jtvandijk/GEOVIS22/raw/master/index.Rmd"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

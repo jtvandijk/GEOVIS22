@@ -1,11 +1,6 @@
-book_filename: "RGSGIS22"
+book_filename: "GEOVIS22"
 rmd_files:
 - index.Rmd
-- session1.Rmd
-- session2.Rmd
-- session3.Rmd
-- session4.Rmd
-- session5.Rmd
 language:
   ui:
     chapter_name: ""

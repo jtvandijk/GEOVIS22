@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Final considerations | Analysis and visualisation of surname data</title>
+  <meta name="description" content="Geovisualisation Spring School." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Final considerations | Analysis and visualisation of surname data" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://jtvandijk.github.io/GEOG0014/" />
+  
+  <meta property="og:description" content="Geovisualisation Spring School." />
+  <meta name="github-repo" content="jtvandijk/GEOVIS22" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Final considerations | Analysis and visualisation of surname data" />
+  
+  <meta name="twitter:description" content="Geovisualisation Spring School." />
+  
+
+<meta name="author" content="Created by Justin van Dijk" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="kde-map.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo">
+<a href=""><img src="images/general/ucl_logo.png">
+</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Welcome</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#background-readings"><i class="fa fa-check"></i>Background readings</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#session-format"><i class="fa fa-check"></i>Session format</a></li>
+</ul></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i>Loading data</a>
+<ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#qgis-installation"><i class="fa fa-check"></i>QGIS installation</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#data-preparation"><i class="fa fa-check"></i>Data preparation</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#adding-data"><i class="fa fa-check"></i>Adding data</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#organising-our-layers"><i class="fa fa-check"></i>Organising our layers</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#inspecting-data-in-excel"><i class="fa fa-check"></i>Inspecting data in Excel</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-point-data-into-qgis"><i class="fa fa-check"></i>Loading point data into QGIS</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html"><i class="fa fa-check"></i>Basic visualisation</a></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i>KDE parametrisation</a></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="" data-path="kde-map.html"><a href="kde-map.html"><i class="fa fa-check"></i>KDE map</a></li>
+<li class="part"><span><b>Wrapping up</b></span></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
+<ul>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#before-you-leave"><i class="fa fa-check"></i>Before you leave</a></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#further-resources"><i class="fa fa-check"></i>Further resources</a></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#further-questions"><i class="fa fa-check"></i>Further questions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis and visualisation of surname data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="final-considerations" class="section level1 unnumbered">
+<h1>Final considerations</h1>
+<div id="before-you-leave" class="section level2 unnumbered">
+<h2>Before you leave</h2>
+<p><a href="https://www.youtube.com/watch?v=Wmc8bQoL-J0">Well done. You made it.</a> Unfortunately, we have arrived at the end of this session of the 2022 International Spring School on Visualisation. For everyone that have never made a map before: we hope that you enjoyed the process and continue to develop these skills in any of your future work. For everyone that have made maps before: we hope that you also enjoyed this process and specifically thought about maps and visualisation in a different way than you have done before.</p>
+</div>
+<div id="further-resources" class="section level2 unnumbered">
+<h2>Further resources</h2>
+<p>If you are interested in developing your spatial analysis / visualisation skills / GIS skills further, more generally, do have a look at the following excellent (open source) resource that is available for QGIS:</p>
+<ul>
+<li>QGIS training manual: <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">[Link]</a></li>
+</ul>
+<p>If you are feeling more adventurous and want to move to some programming, you can also check out some more of the geospatial goodness that is available online:</p>
+<ul>
+<li>Geocomputation with R: <a href="https://geocompr.robinlovelace.net/">[Link]</a></li>
+<li>Intro to GIS and Spatial Analysis: <a href="https://mgimond.github.io/Spatial/index.html">[Link]</a></li>
+<li>Geographic Data Science with Python: <a href="https://geographicdata.science/book/intro.html">[Link]</a></li>
+</ul>
+<p>If you want to see more surname visualisations, including geodemographic profiles, for surnames that are captured in some of our datasets we hold for Great Britain (as refered to in the Lecture), you probably want to check out:</p>
+<ul>
+<li>GBNames: <a href="https://apps.cdrc.ac.uk/gbnames/">[Link]</a></li>
+</ul>
+<p>If you are interested in some of the (open source) datasets that the UK <a href="https://www.cdrc.ac.uk/">Consumer Data Research Centre</a> holds, check out:</p>
+<ul>
+<li>CDRC Data: <a href="https://data.cdrc.ac.uk/">[Link]</a></li>
+</ul>
+</div>
+<div id="further-questions" class="section level2 unnumbered">
+<h2>Further questions</h2>
+<p>If there is any further questions, you can contact me at j.t.vandijk [at] ucl.ac.uk.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="kde-map.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtvandijk/GEOVIS22/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["https://github.com/jtvandijk/GEOVIS22/raw/master/index.Rmd"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

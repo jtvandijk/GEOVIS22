@@ -2,11 +2,12 @@ bookdown::gitbook:
   css: assets/custom.css
   config:
     toc:
+      collapse: section
       before: |
         <li class="toc-logo">
-        <a href="https://geoinfo.science/"><img src="images/giscience-rg-logo.png">
+        <a href=""><img src="images/general/ucl_logo.png">
         </a></li>
-    edit: https://github.com/jtvandijk/RGSGIS22/edit/master/%s
+    edit: https://github.com/jtvandijk/GEOVIS22/edit/master/%s
     download: ["rmd"]
     sharing:
           github: yes
