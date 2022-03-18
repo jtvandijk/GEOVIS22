@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="basic-visualisation.html"/>
-<link rel="next" href="map-export-map.html"/>
+<link rel="next" href="map-export.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -102,17 +102,18 @@
 <li class="part"><span><b>Section 3</b></span></li>
 <li class="chapter" data-level="3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i><b>3</b> KDE parametrisation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#analysis-toolbox"><i class="fa fa-check"></i><b>3.1</b> Analysis toolbox</a></li>
-<li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extract-kde-values"><i class="fa fa-check"></i><b>3.2</b> Extract KDE values</a></li>
-<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.3</b> Vector</a></li>
-<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.4</b> Tasks</a></li>
+<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#kernel-density-estimation"><i class="fa fa-check"></i><b>3.1</b> Kernel Density Estimation</a></li>
+<li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#qgis-processing-toolbox"><i class="fa fa-check"></i><b>3.2</b> QGIS processing toolbox</a></li>
+<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extract-kde-values"><i class="fa fa-check"></i><b>3.3</b> Extract KDE values</a></li>
+<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.4</b> Vector</a></li>
+<li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Section 4</b></span></li>
-<li class="chapter" data-level="4" data-path="map-export-map.html"><a href="map-export-map.html"><i class="fa fa-check"></i><b>4</b> Map export map</a>
+<li class="chapter" data-level="4" data-path="map-export.html"><a href="map-export.html"><i class="fa fa-check"></i><b>4</b> Map export</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="map-export-map.html"><a href="map-export-map.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
-<li class="chapter" data-level="4.2" data-path="map-export-map.html"><a href="map-export-map.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
-<li class="chapter" data-level="4.3" data-path="map-export-map.html"><a href="map-export-map.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
+<li class="chapter" data-level="4.1" data-path="map-export.html"><a href="map-export.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
+<li class="chapter" data-level="4.2" data-path="map-export.html"><a href="map-export.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
+<li class="chapter" data-level="4.3" data-path="map-export.html"><a href="map-export.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Wrapping up</b></span></li>
 <li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
@@ -140,35 +141,69 @@
             <section class="normal" id="section-">
 <div id="kde-parametrisation" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> KDE parametrisation</h1>
-<div id="analysis-toolbox" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Analysis toolbox</h2>
-<p>KDE calculations</p>
+<div id="kernel-density-estimation" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Kernel Density Estimation</h2>
+<p>Where the <strong>heatmap</strong> symbology is a nice way to quickly visualise a set of point data, there is only few options to change the result. A more advanced way to analyse the density of a point process, is through something called <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel Density Estimation</a> (KDE). KDE is a statistical technique to generate a smooth continuous distribution between data points that represent the density of the underlying pattern.</p>
 <div class="note">
 <p><strong>Note</strong> <br />
-note if vector operatiojs are not there &gt; plugins &gt; installed &gt; switch processing on and off</p>
+The <strong>heatmap</strong> that we created through the <strong>Symbology</strong> tab is in actual fact created by an <em>on the fly</em> KDE calculation with a set of default parameters.</p>
 </div>
+<p>When executing a KDE, a surface is produced (for the connoisseurs: a <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm">raster dataset</a>) that details the estimated distribution of our event point data over space. Each cell within the raster contains a value that is this estimated density at that location; when visualised in its entirety as the whole raster, we can quickly identify areas of high and low density, i.e. where are clusters are located in our data set. To create this surface, a KDE computes a localised density for small subsets of our study area using overlapping windows, called a kernel. A kernel defines the shape and size of the window and can also weight the points, using a defined kernel function. The simplest kernel function is a basic kernel where each point in the kernel window is assigned equal weight. When we use a different kernel type, we are looking to weight the points within our kernel differently:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kernel-type"></span>
+<img src="images/geovis/kerneltypes.png" alt="Kernel types and their distributions." width="650pt" />
+<p class="caption">
+Figure 3.1: Kernel types and their distributions.
+</p>
+</div>
+<p>Each function will result in a slightly different estimation. <a href="https://nij.ojp.gov/sites/g/files/xyckuh171/files/media/document/CrimeStat%2520IV%2520Chapter%252010.pdf">Levine (2013)</a> summarises the differences between the kernels as follows:</p>
+<blockquote>
+<p>The normal distribution weighs all points in the study area, though near points are weighted more highly than distant points. The other four techniques use a circumscribed circle around the grid cell. The uniform distribution weighs all points within the circle equally. The quartic function weighs near points more than far points, but the fall off is gradual. The triangular function weighs near points more than far points within the circle, but the fall off is more rapid. Finally, the negative exponential weighs near points much more highly than far points within the circle and the decay is very rapid.</p>
+</blockquote>
+<p>The kernel density approach generates a grid of density values whose cell size is smaller than that of the kernel window. Each cell is assigned the density value computed for the kernel window centered on that cell. The resulting surface is created from these individually, locally calculated density values. Another way to think about it is as a smoothed histogram, but now created in two-dimensional space. The explanation by <em>Jake VanderPlas</em> in his <a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html">Python Data Science Handbook</a> explains this idea in much more detail and very clearly.</p>
+<div class="note">
+<p><strong>TL;DR</strong> <br />
+A Kernel Density Estimation (KDE) is the method that underlies the idea of a heatmap: creating a smoothed surface of a set of discrete locations.</p>
+</div>
+</div>
+<div id="qgis-processing-toolbox" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> QGIS processing toolbox</h2>
+<p>Where we can use the <strong>heatmap</strong> symbology to create a quick-and-dirty KDE surface to visualise a set of points, QGIS also comes with a set of geospatial processing tools that can be used to execute a variety of spatial analyses. One of these processing tools is called <strong>Kernel Density Estimation</strong>. The difference between the <strong>heatmap</strong> and the geospatial processing tool is that the latter gives the option to finetune the parameters of the KDE as well as that it allows you to save the output as a separate data file. Let’s run a KDE on your <code>bearers_of_vandijk</code> layer, but this time using the <strong>Processing Toolbox</strong>:</p>
 <ul>
+<li>In the main menubar, click on the <strong>Toolbox</strong> button to open the <strong>Processing Toolbox</strong>:
+<br /><br />
+<img src="images/geovis/toolbox.png" width="40" style="display: block; margin: auto;" />
+<br /><br /></li>
+<li>In the search bar type: <em>Kernel Density Estimation</em>.</li>
+<li>Double click on: <strong>Heatmap (Kernel Density Estimation)</strong>.</li>
 <li>kernel: set bandwidth - 10km</li>
 <li>set grid: 500 (Y)</li>
 <li>use raw output (number represent counts)</li>
 <li>run</li>
 </ul>
+<div class="note">
+<p><strong>Note</strong> <br />
+If the <strong>Toolbox</strong> button is not visible it is likely that the <strong>Processing</strong> plugin is not activated. You can activate this as follows:</p>
+<ul>
+<li>Go to <strong>Plugins</strong> &gt; <strong>Manage and Install Plugins …</strong>.</li>
+<li>Go to the <strong>Installed</strong> tab and type <em>processing</em> in the search box. Then tick the box in front of <strong>Processing</strong> off and on again to force reload the <strong>Toolbox</strong>. Click <strong>Close</strong>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/processing_plugin.png" target="_blank">[See screenshot]</a></li>
+</ul>
 </div>
-<div id="extract-kde-values" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Extract KDE values</h2>
+</div>
+<div id="extract-kde-values" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Extract KDE values</h2>
 <ul>
 <li>swop colours (white to black); change minimum value for visualisation</li>
 </ul>
 </div>
-<div id="vector" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Vector</h2>
+<div id="vector" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Vector</h2>
 <ul>
 <li>extract values with raster calculators (instead of hiding them by not visualising them)</li>
 <li>raster to vector to create area with at least n number of bearers</li>
 </ul>
 </div>
-<div id="task-s3" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Tasks</h2>
+<div id="task-s3" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Tasks</h2>
 <ul>
 <li>different kernels</li>
 <li>very small bandwidth</li>
@@ -190,7 +225,7 @@ Error means no space &gt; probably grid is too large</p>
         </div>
       </div>
 <a href="basic-visualisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="map-export-map.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="map-export.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

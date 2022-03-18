@@ -386,3 +386,6 @@ If you want to see more surname visualisations, including geodemographic profile
 ## Further questions {-}
 If there is any further questions, you can contact me at j.t.vandijk [at] ucl.ac.uk.
 
+
+<!--chapter:end:index.Rmd-->
+

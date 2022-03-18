@@ -102,17 +102,18 @@
 <li class="part"><span><b>Section 3</b></span></li>
 <li class="chapter" data-level="3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i><b>3</b> KDE parametrisation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#analysis-toolbox"><i class="fa fa-check"></i><b>3.1</b> Analysis toolbox</a></li>
-<li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extract-kde-values"><i class="fa fa-check"></i><b>3.2</b> Extract KDE values</a></li>
-<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.3</b> Vector</a></li>
-<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.4</b> Tasks</a></li>
+<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#kernel-density-estimation"><i class="fa fa-check"></i><b>3.1</b> Kernel Density Estimation</a></li>
+<li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#qgis-processing-toolbox"><i class="fa fa-check"></i><b>3.2</b> QGIS processing toolbox</a></li>
+<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extract-kde-values"><i class="fa fa-check"></i><b>3.3</b> Extract KDE values</a></li>
+<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.4</b> Vector</a></li>
+<li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Section 4</b></span></li>
-<li class="chapter" data-level="4" data-path="map-export-map.html"><a href="map-export-map.html"><i class="fa fa-check"></i><b>4</b> Map export map</a>
+<li class="chapter" data-level="4" data-path="map-export.html"><a href="map-export.html"><i class="fa fa-check"></i><b>4</b> Map export</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="map-export-map.html"><a href="map-export-map.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
-<li class="chapter" data-level="4.2" data-path="map-export-map.html"><a href="map-export-map.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
-<li class="chapter" data-level="4.3" data-path="map-export-map.html"><a href="map-export-map.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
+<li class="chapter" data-level="4.1" data-path="map-export.html"><a href="map-export.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
+<li class="chapter" data-level="4.2" data-path="map-export.html"><a href="map-export.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
+<li class="chapter" data-level="4.3" data-path="map-export.html"><a href="map-export.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Wrapping up</b></span></li>
 <li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
@@ -279,7 +280,7 @@ The surname files that we downloaded are in a so-called <code>csv</code> format.
 Figure 1.10: Inspecting our crime data <code>csv</code>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/inspect_data.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>Our dataset only contains three columns with data: <code>name</code>, <code>x</code>, and <code>y</code>. The <code>x</code> and <code>y</code> columns contain the x-coordinate and y-coordinate of the recorded location of the individual bearer of the surname, respectively. For the connoisseur: coordinates are already projected in <a href="EPSG%2027700">EPSG 27700</a> (British National Grid). After inspecting the data, you can close Excel again. Make sure that you do <strong>not</strong> save the file.</p>
+<p>Our dataset only contains three columns with data: <code>name</code>, <code>x</code>, and <code>y</code>. The <code>x</code> and <code>y</code> columns contain the x-coordinate and y-coordinate of the recorded location of the individual bearer of the surname, respectively. For the connoisseurs: these coordinates are already projected in <a href="EPSG%2027700">EPSG 27700</a> (British National Grid). After inspecting the data, you can close Excel again. Make sure that you do <strong>not</strong> save the file.</p>
 </div>
 <div id="loading-point-data-into-qgis" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> Loading point data into QGIS</h2>
@@ -315,8 +316,8 @@ Do not forget to save your progress once a while!</p>
 <h2><span class="header-section-number">1.7</span> Tasks</h2>
 <p>Now you know the basics of loading data into QGIS, you can go ahead and try:</p>
 <ul>
-<li>Loading one of the other surname datasets in the same fashion.</li>
-<li>Visually comparing the distributions of the different surname datasets by toggling the different surname layers on and off.</li>
+<li>Load one of the other surname datasets in the same fashion as we did with the <code>bearers_of_vandijk</code> dataset.</li>
+<li>Visually compare the distributions of the different surname datasets by toggling the different surname layers on and off.</li>
 </ul>
 </div>
 </div>
