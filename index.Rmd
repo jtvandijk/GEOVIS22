@@ -45,8 +45,8 @@ You can hide and show the sidebar (Table of Contents) with the **Toggle Sidebar*
 :::
 
 # (PART\*) Section 1 {-}
-# Loading data {-}
-## QGIS installation {-}
+# Loading data 
+## QGIS installation
 Some of you may already have played around with some GIS software such as [ArcGIS](https://www.arcgis.com/index.html), but today we will be using the open-source GIS software suite [QGIS](https://www.qgis.org/en/site/). If you have not already done so, you can download a copy of QGIS to your own computer through the [QGIS webpage](https://qgis.org/en/site/forusers/download.html).
 
 ```{r qgis-download, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Download page for QGIS. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_download.png){target="_blank"}'}
@@ -58,7 +58,7 @@ knitr::include_graphics('images/geovis/qgis_download.png')
 The instructions provided are based on [QGIS 3.16](https://qgis.org/en/site/forusers/download.html) (long term release) for [Windows](https://www.microsoft.com/en-gb/windows?r=1). These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operation systems (specifically [macOS](https://www.apple.com/uk/macos/monterey/)). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.
 :::
 
-## Data preparation {-}
+## Data preparation 
 We have prepared several data sets with the locations of the bearers of five different surnames (*Longley*, *Van Dijk*, *Novak*, *Smith*, and *Rossall*) that are present in Great Britain in 2016. In addition to the surname data, we also prepared a data set containing the simplified boundaries of Great Britain and a dataset containing the names of locations of several large cities. We will use these simplified boundaries and cities to contextualise our map. 
 
 :::note
@@ -97,7 +97,7 @@ knitr::include_graphics('images/geovis/wd_dir.png')
 The `gb_outline` and `gb_cities` files that we downloaded are something called a `shapefile.` A `shapefile` is a file that GIS software uses to store spatial data. In the case of a shapefile this is in actual fact a misnomer because a `shapefile` consists of a **collection of files**. Without going into detail: each of these files does something slightly different and the the software we will be using requires needs all of them in order to understand the data.
 :::
 
-## Adding data {-}
+## Adding data 
 Now we have downloaded and organised our data, we can open QGIS. QGIS is a free and open-source cross-platform desktop geographic information system application that supports viewing, editing, and analysis of geospatial data. Start QGIS. It may take a little while before QGIS has started, so be patient. Once opened, you will see the QGIS interface which will look something like this:
 
 ```{r qgis-interface, echo=FALSE, fig.align='center', out.width='850pt', fig.cap=' The QGIS interface on Windows. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/qgis_interface.png){target="_blank"}'}
@@ -132,14 +132,14 @@ Before doing anything else, now would be a good time to save our QGIS project. G
 knitr::include_graphics('images/geovis/save_project.png')
 ```
 
-## Organising our layers {-}
+## Organising our layers 
 Now we have our first set of data loaded, we can reorganise them a little. In the **Layers** panel, we can drag the `gb_outline` layer on top of the `gb_cities` layer to change their order. We can also change a layer's colour (right click on `gb_outline` or `gb_cities` > **Properties ...** > change the colour under the **Symbology** tab), and zoom in and out of the map by scrolling:
 
 ```{r organise-data, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Organising the order of our data and changing symbology. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/organise_data.gif){target="_blank"}'}
 knitr::include_graphics('images/geovis/organise_data.gif')
 ```
 
-## Inspecting data in Excel {-}
+## Inspecting data in Excel 
 The next thing we want to do is have a closer look at the surname data before loading them too in QGIS. It is good practice to see how your data looks like before you take any further steps.
 
 :::note
@@ -155,7 +155,7 @@ knitr::include_graphics('images/geovis/inspect_data.gif')
 
 Our dataset only contains three columns with data: `name`, `x`, and `y`. The `x` and `y` columns contain the x-coordinate and y-coordinate of the recorded location of the individual bearer of the surname, respectively. For the connoisseur: coordinates are already projected in [EPSG 27700](EPSG 27700) (British National Grid). After inspecting the data, you can close Excel again. Make sure that you do **not** save the file.
 
-## Loading point data into QGIS {-}
+## Loading point data into QGIS 
 Now we know what we are dealing with, we can load our surname data into QGIS. To do so, there are several steps we need to take:
 
 - Go to **Layer** > **Add Layer** > **Add Delimited Text Layer ...**. Because our data is a `csv` file we need to load it as a file in which columns are delimited by a certain character; a comma in our case.
@@ -183,15 +183,15 @@ We now have all data we need to visualise our first surname dataset, and with th
 Do not forget to save your progress once a while!
 :::
 
-## Tasks {-}
+## Tasks {#task-s1}
 Now you know the basics of loading data into QGIS, you can go ahead and try:
 
 - Loading one of the other surname datasets in the same fashion.
 - Visually comparing the distributions of the different surname datasets by toggling the different surname layers on and off.
 
 # (PART\*) Section 2 {-}
-# Basic visualisation {-}
-## Changing symbologoy {-}
+# Basic visualisation 
+## Changing symbologoy 
 Now we have loaded our first surname dataset, the next thing we want to do is get some more insight into our surname data. Let's start by changing the symbology of our `gb_cities` layer by adding in place names for some context. We will also change the symbology of our `gb_outline` background layer and the general appearance of our surname layer.
 
 Updating the symbology of the `gb_outline` layer:
@@ -222,7 +222,7 @@ Once you have updated the symbology of your three layers, you can reorganise the
 knitr::include_graphics('images/geovis/changing_symbology.gif')
 ```
 
-## Creating a heatmap {-}
+## Creating a heatmap 
 Rather than simply changing the symbology of the point layers, we can also create a quick **hotspot** or **heatmap**. QGIS can do this automatically by mapping the density of the points:
 
 - Right click on the `bearers_of_vandijk` layer in the **Layers** panel and click on **Properties ...**. Here we can change the symbology of the layer.
@@ -236,7 +236,7 @@ We now have created a rather nice visualisation of all bearers of *Van Dijk* in 
 knitr::include_graphics('images/geovis/hot_name.gif')
 ```
 
-## Adding a basemap {-}
+## Adding a basemap 
 Based on the `gb_outline` and `gb_cities` layers, we are able to contextualise our heatmap. However, we can also add something called a *base map* layer. A base map is a layer with geographic information that serves as a background and is incredibly useful when you want to add some additional context to your map. We do need a little plugin to add this base map. We can do that as follows:
 
 - Go to **Plugins** > **Manage and Install Plugins**.
@@ -250,19 +250,83 @@ The **GIF** below summarises these steps:
 knitr::include_graphics('images/geovis/add_basemap.gif')
 ```
 
-## Tasks {-}
+## Tasks {#task-s2}
 That was not too difficult. Feel free to play around with different colours, settings and visualisation options. In addition:
 
 - Create a heatmap layer for: *Novak* and *Longley*.
 - Visually comparing the distributions of the *Novak*, *Longley* and *Van Dijk* surname heatmaps by toggling the different surname layers on and off. Any similarities? Which background layer do you find easier for these comparisions: the OSM basemap or the combination of the `gb_outline` and `gb_cities` layers?
 
 # (PART\*) Section 3 {-}
-# KDE parametrisation {-}
+# KDE parametrisation
+## Analysis toolbox
 KDE calculations
 
+:::note
+**Note** <br />
+note if vector  operatiojs are not there > plugins > installed > switch processing on and off
+:::
+
+- kernel: set bandwidth - 10km 
+- set grid: 500 (Y)
+- use raw output (number represent counts)
+- run
+
+## Extract KDE values
+- swop colours (white to black); change minimum value for visualisation
+
+
+## Vector
+- extract values with raster calculators (instead of hiding them by not visualising them)
+- raster to vector to create area with at least n number of bearers
+
+## Tasks {#task-s3}
+
+- different kernels
+- very small bandwidth
+- very large bandwidth
+- different grid size
+
+:::note
+**Note** <br />
+Error means no space > probably grid is too large
+:::
+
 # (PART\*) Section 4 {-}
-# KDE map {-}
-Print view
+# Map export map
+## KDE map
+Select layers for final map.
+
+## Print layout
+In this exercise we have downloaded some data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS **Print Layout**:
+
+- Go to **Project** > **New Print Layout ...**.
+- Give it a name, e.g. `kde_map`. 
+- A new window opens up. In the toolbar on the left hand side, click on the **Add map** button:
+<br /><br /> 
+```{r add-map, echo=FALSE, fig.align='center'}
+knitr::include_graphics('images/geovis/add_map.png')
+```
+<br /><br />
+- Draw a box on the canvas. The surname map should now appear.
+- Using the toolbar on the left hand side, there is several other options such as **Add scale bar**, **Add North Arrow**, and **Add Legend**. *There are lots of options to play around with!*
+- Once you are happy with your map, you can save your map by going to **Layout** > **Export as Image ...**. If you get a message popping up saying something about "Project Contains WMS Layers" just click on **Close**. Navigate to your *working directory*, give your map a name and click **Save**. Also click **Save** on the next window that pops up.
+
+These steps should create an image which you should be able to find in your *working directory*. The **GIF** below summarises these steps:
+
+```{r export-map, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Finalising a map in the **Print Layout** and saving a map as an image. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif){target="_blank"}'}
+#knitr::include_graphics('images/w08/export_map.gif')
+```
+
+This image is now ready to be used outside QGIS!
+
+:::note
+**Note** <br/>
+There are many more options on how to style the maps, so do play around with colours and settings when making your maps. 
+:::
+
+## Tasks {#task-s4}
+
+- make maps
 
 # (PART\*) Wrapping up {-}
 # Final considerations {-}
@@ -271,23 +335,18 @@ Print view
 [Well done. You made it.](https://www.youtube.com/watch?v=Wmc8bQoL-J0) Unfortunately, we have arrived at the end of this session of the 2022 International Spring School on Visualisation. For everyone that have never made a map before: we hope that you enjoyed the process and continue to develop these skills in any of your future work. For everyone that have made maps before: we hope that you also enjoyed this process and specifically thought about maps and visualisation in a different way than you have done before. 
 
 ## Further resources {-}
-If you are interested in developing your spatial analysis / visualisation skills / GIS skills further, more generally, do have a look at the following excellent (open source) resource that is available for QGIS:
+If you are interested in developing your spatial analysis / visualisation skills / GIS skills further, more generally, do have a look at some of the excellent (open source) resources that are available for QGIS. If you are feeling more adventurous and want to move to some programming, you can also check out some more of the geospatial goodness that is available online (see table below).
 
-- QGIS training manual:  [[Link]](https://docs.qgis.org/3.16/en/docs/training_manual/index.html)
+If you want to see more surname visualisations, including geodemographic profiles, for surnames that are captured in some of our datasets we hold for Great Britain (as refered to in the Lecture), you probably want to check out [GBNames](https://apps.cdrc.ac.uk/gbnames/). If you are interested in some of the (open source) datasets that the UK [Consumer Data Research Centre](https://www.cdrc.ac.uk/).
 
-If you are feeling more adventurous and want to move to some programming, you can also check out some more of the geospatial goodness that is available online:
-
-- Geocomputation with R: [[Link]](https://geocompr.robinlovelace.net/)
-- Intro to GIS and Spatial Analysis: [[Link]](https://mgimond.github.io/Spatial/index.html)
-- Geographic Data Science with Python: [[Link]](https://geographicdata.science/book/intro.html)
-
-If you want to see more surname visualisations, including geodemographic profiles, for surnames that are captured in some of our datasets we hold for Great Britain (as refered to in the Lecture), you probably want to check out:
-
-- GBNames: [[Link]](https://apps.cdrc.ac.uk/gbnames/)
-
-If you are interested in some of the (open source) datasets that the UK [Consumer Data Research Centre](https://www.cdrc.ac.uk/) holds, check out:
-
-- CDRC Data: [[Link]](https://data.cdrc.ac.uk/)
+| Resource                                             | Type            | Link |
+| :------                                              | :------         | :------ |
+| QGIS training manual                                 | `manual` `QGIS` | [[Link]](https://docs.qgis.org/3.16/en/docs/training_manual/index.html) |
+| Geocomputation with R                                | `book` `R`      | [[Link]](https://geocompr.robinlovelace.net/) |
+| Intro to GIS and Spatial Analysis                    | `book` `R`      | [[Link]](https://mgimond.github.io/Spatial/index.html) |
+| Geographic Data Science with Python                  | `book` `python` | [[Link]](https://geographicdata.science/book/intro.html) |
+| GBNames surname profiler                             | `website`       | [[Link]](https://apps.cdrc.ac.uk/gbnames/) |
+| CDRC data repository                                 | `repository`     | [[Link]](https://data.cdrc.ac.uk/) |
 
 ## Further questions {-}
 If there is any further questions, you can contact me at j.t.vandijk [at] ucl.ac.uk.
