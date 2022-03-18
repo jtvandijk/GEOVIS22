@@ -11,3 +11,5 @@ fig:inspect-data
 fig:load-surname-data
 fig:zoom-surname
 fig:changing-symbology
+fig:hot-name
+fig:adding-basemap

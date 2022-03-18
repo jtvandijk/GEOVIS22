@@ -232,15 +232,29 @@ Rather than simply changing the symbology of the point layers, we can also creat
 
 We now have created a rather nice visualisation of all bearers of *Van Dijk* in Great Britain -  The **GIF** below summarises these steps:
 
-```{r hot-name, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Creating a basic heatmap of our *Van Dijk* surname layer. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/geovis/geovis/hot_name.gif){target="_blank"}'}
-#knitr::include_graphics('images/geovis/hot_name.gif')
+```{r hot-name, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Creating a basic heatmap of our *Van Dijk* surname layer. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/hot_name.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/hot_name.gif')
+```
+
+## Adding a basemap {-}
+Based on the `gb_outline` and `gb_cities` layers, we are able to contextualise our heatmap. However, we can also add something called a *base map* layer. A base map is a layer with geographic information that serves as a background and is incredibly useful when you want to add some additional context to your map. We do need a little plugin to add this base map. We can do that as follows:
+
+- Go to **Plugins** > **Manage and Install Plugins**.
+- Search for **QuickMapServices** and click on **Install plugin**.
+- Once the plugin is installed you can go to **Web** > **QuickMapServices** > **OSM** > **OSM Standard**. *OSM stands for [OpenStreetMap](https://www.openstreetmap.org/#map=6/54.910/-3.432). OpenStreetMap is a collaborative project to create a free editable geographic database of the world.* It may take a few seconds to load the base map.
+- Now reorganise the layers
+
+The **GIF** below summarises these steps:
+
+```{r adding-basemap, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Adding a basemap layer. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/add_basemap.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/add_basemap.gif')
 ```
 
 ## Tasks {-}
 That was not too difficult. Feel free to play around with different colours, settings and visualisation options. In addition:
 
 - Create a heatmap layer for: *Novak* and *Longley*.
-- Visually comparing the distributions of the *Novak*, *Longley* and *Van Dijk* surname heatmaps by toggling the different surname layers on and off. Any similarities?
+- Visually comparing the distributions of the *Novak*, *Longley* and *Van Dijk* surname heatmaps by toggling the different surname layers on and off. Any similarities? Which background layer do you find easier for these comparisions: the OSM basemap or the combination of the `gb_outline` and `gb_cities` layers?
 
 # (PART\*) Section 3 {-}
 # KDE parametrisation {-}
