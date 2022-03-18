@@ -183,15 +183,64 @@ We now have all data we need to visualise our first surname dataset, and with th
 Do not forget to save your progress once a while!
 :::
 
-#### Extra tasks {-}
-In case you are fast, potentially because you have done some work in QGIS before, you can go ahead and try:
+## Tasks {-}
+Now you know the basics of loading data into QGIS, you can go ahead and try:
 
 - Loading one of the other surname datasets in the same fashion.
-- Change the colours of the different map layers to make the map look nicer.
+- Visually comparing the distributions of the different surname datasets by toggling the different surname layers on and off.
 
 # (PART\*) Section 2 {-}
 # Basic visualisation {-}
-Basic heatmap
+## Changing symbologoy {-}
+Now we have loaded our first surname dataset, the next thing we want to do is get some more insight into our surname data. Let's start by changing the symbology of our `gb_cities` layer by adding in place names for some context. We will also change the symbology of our `gb_outline` background layer and the general appearance of our surname layer.
+
+Updating the symbology of the `gb_outline` layer:
+
+- Right click on the `gb_outline` layer in the **Layers** panel and click on **Properties ...**. Here we can change the symbology of the layer.
+- Under the **Symbology** tab make sure that the selection is set to **Single Symbol** (the default) and click on **Simple Fill**.
+- Click on the dropdown menu button next to **Fill color** and select **Choose Color ...**.
+- In the **HTML notation** box type: `#bfbebe` and click **OK**.
+- Now click on the dropdown menu button next to **Stroke style** and select **No Pen**. Click **Apply** and click **OK**.
+
+Updating the symbology of the `gb_cities` layer:
+
+- Right click on the `gb_cities` layer in the **Layers** panel and click on **Properties ...**.
+- Under the **Symbology** tab make sure that the selection is set to **Single Symbol** (the default) and click on **Simple Marker**.
+- Change the the size of the marker to to *2.4* and, using the dropdown menu button next to **Stroke style**, set the **Stroke style** to **No Pen**. Click **Apply**.
+- Now click on the **Labels** tab and change the **No Labels** setting to **Single Labels**.  
+- Click on the **Value** dropdown menu button and make sure that **Value** is set to *city*. This is the variable containing the names of our cities. Click **Apply** and click **OK**.
+
+Updating the symbology of the `bearers_of_vandijk` layer:
+
+- Right click on the `bearers_of_vandijk` layer in the **Layers** panel and click on **Properties ...**.
+- Under the **Symbology** tab make sure that the selection is set to **Single Symbol** (the default), click on **dot blue** and click on **Simple Marker**.
+- Change the the size of the marker to to *2* and, using the dropdown menu button next to **Stroke style**, set the **Stroke style** to **No Pen**. Click **Apply** and click **OK**.
+
+Once you have updated the symbology of your three layers, you can reorganise the order of your layers to make sure tha the `gb_cities` layers is drawn on top. The QGIS screen now shows a map with an updated symbology, including our several large cities. The **GIF** below summarises these steps:
+
+```{r changing-symbology, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Adding labels to our `gb_cities` layer and changing the symbology of our other layers. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/changing_symbology.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/changing_symbology.gif')
+```
+
+## Creating a heatmap {-}
+Rather than simply changing the symbology of the point layers, we can also create a quick **hotspot** or **heatmap**. QGIS can do this automatically by mapping the density of the points:
+
+- Right click on the `bearers_of_vandijk` layer in the **Layers** panel and click on **Properties ...**. Here we can change the symbology of the layer.
+- At the top of the menu change **Single Symbol** to **Heatmap**.
+- Using the drop down menu, change the **Color ramp** to **Magma** for a little more exciting map.
+- Under **Layer Rendering** set the **Opacity** to 60%, so to blend the heatmap with the background. Click **Apply**. *This may take a few seconds.* Then click **OK**.
+
+We now have created a rather nice visualisation of all bearers of *Van Dijk* in Great Britain -  The **GIF** below summarises these steps:
+
+```{r hot-name, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Creating a basic heatmap of our *Van Dijk* surname layer. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/geovis/geovis/hot_name.gif){target="_blank"}'}
+#knitr::include_graphics('images/geovis/hot_name.gif')
+```
+
+## Tasks {-}
+That was not too difficult. Feel free to play around with different colours, settings and visualisation options. In addition:
+
+- Create a heatmap layer for: *Novak* and *Longley*.
+- Visually comparing the distributions of the *Novak*, *Longley* and *Van Dijk* surname heatmaps by toggling the different surname layers on and off. Any similarities?
 
 # (PART\*) Section 3 {-}
 # KDE parametrisation {-}

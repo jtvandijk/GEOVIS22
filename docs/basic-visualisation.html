@@ -89,9 +89,15 @@
 <li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#organising-our-layers"><i class="fa fa-check"></i>Organising our layers</a></li>
 <li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#inspecting-data-in-excel"><i class="fa fa-check"></i>Inspecting data in Excel</a></li>
 <li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-point-data-into-qgis"><i class="fa fa-check"></i>Loading point data into QGIS</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#tasks"><i class="fa fa-check"></i>Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Section 2</b></span></li>
-<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html"><i class="fa fa-check"></i>Basic visualisation</a></li>
+<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html"><i class="fa fa-check"></i>Basic visualisation</a>
+<ul>
+<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html#changing-symbologoy"><i class="fa fa-check"></i>Changing symbologoy</a></li>
+<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html#creating-a-heatmap"><i class="fa fa-check"></i>Creating a heatmap</a></li>
+<li class="chapter" data-level="" data-path="basic-visualisation.html"><a href="basic-visualisation.html#tasks-1"><i class="fa fa-check"></i>Tasks</a></li>
+</ul></li>
 <li class="part"><span><b>Section 3</b></span></li>
 <li class="chapter" data-level="" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i>KDE parametrisation</a></li>
 <li class="part"><span><b>Section 4</b></span></li>
@@ -122,7 +128,59 @@
             <section class="normal" id="section-">
 <div id="basic-visualisation" class="section level1 unnumbered">
 <h1>Basic visualisation</h1>
-<p>Basic heatmap</p>
+<div id="changing-symbologoy" class="section level2 unnumbered">
+<h2>Changing symbologoy</h2>
+<p>Now we have loaded our first surname dataset, the next thing we want to do is get some more insight into our surname data. Let’s start by changing the symbology of our <code>gb_cities</code> layer by adding in place names for some context. We will also change the symbology of our <code>gb_outline</code> background layer and the general appearance of our surname layer.</p>
+<p>Updating the symbology of the <code>gb_outline</code> layer:</p>
+<ul>
+<li>Right click on the <code>gb_outline</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>. Here we can change the symbology of the layer.</li>
+<li>Under the <strong>Symbology</strong> tab make sure that the selection is set to <strong>Single Symbol</strong> (the default) and click on <strong>Simple Fill</strong>.</li>
+<li>Click on the dropdown menu button next to <strong>Fill color</strong> and select <strong>Choose Color …</strong>.</li>
+<li>In the <strong>HTML notation</strong> box type: <code>#bfbebe</code> and click <strong>OK</strong>.</li>
+<li>Now click on the dropdown menu button next to <strong>Stroke style</strong> and select <strong>No Pen</strong>. Click <strong>Apply</strong> and click <strong>OK</strong>.</li>
+</ul>
+<p>Updating the symbology of the <code>gb_cities</code> layer:</p>
+<ul>
+<li>Right click on the <code>gb_cities</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>.</li>
+<li>Under the <strong>Symbology</strong> tab make sure that the selection is set to <strong>Single Symbol</strong> (the default) and click on <strong>Simple Marker</strong>.</li>
+<li>Change the the size of the marker to to <em>2.4</em> and, using the dropdown menu button next to <strong>Stroke style</strong>, set the <strong>Stroke style</strong> to <strong>No Pen</strong>. Click <strong>Apply</strong>.</li>
+<li>Now click on the <strong>Labels</strong> tab and change the <strong>No Labels</strong> setting to <strong>Single Labels</strong>.<br />
+</li>
+<li>Click on the <strong>Value</strong> dropdown menu button and make sure that <strong>Value</strong> is set to <em>city</em>. This is the variable containing the names of our cities. Click <strong>Apply</strong> and click <strong>OK</strong>.</li>
+</ul>
+<p>Updating the symbology of the <code>bearers_of_vandijk</code> layer:</p>
+<ul>
+<li>Right click on the <code>bearers_of_vandijk</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>.</li>
+<li>Under the <strong>Symbology</strong> tab make sure that the selection is set to <strong>Single Symbol</strong> (the default), click on <strong>dot blue</strong> and click on <strong>Simple Marker</strong>.</li>
+<li>Change the the size of the marker to to <em>2</em> and, using the dropdown menu button next to <strong>Stroke style</strong>, set the <strong>Stroke style</strong> to <strong>No Pen</strong>. Click <strong>Apply</strong> and click <strong>OK</strong>.</li>
+</ul>
+<p>Once you have updated the symbology of your three layers, you can reorganise the order of your layers to make sure tha the <code>gb_cities</code> layers is drawn on top. The QGIS screen now shows a map with an updated symbology, including our several large cities. The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:changing-symbology"></span>
+<img src="images/geovis/changing_symbology.gif" alt="Adding labels to our `gb_cities` layer and changing the symbology of our other layers. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/changing_symbology.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 13: Adding labels to our <code>gb_cities</code> layer and changing the symbology of our other layers. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/changing_symbology.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+</div>
+<div id="creating-a-heatmap" class="section level2 unnumbered">
+<h2>Creating a heatmap</h2>
+<p>Rather than simply changing the symbology of the point layers, we can also create a quick <strong>hotspot</strong> or <strong>heatmap</strong>. QGIS can do this automatically by mapping the density of the points:</p>
+<ul>
+<li>Right click on the <code>bearers_of_vandijk</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>. Here we can change the symbology of the layer.</li>
+<li>At the top of the menu change <strong>Single Symbol</strong> to <strong>Heatmap</strong>.</li>
+<li>Using the drop down menu, change the <strong>Color ramp</strong> to <strong>Magma</strong> for a little more exciting map.</li>
+<li>Under <strong>Layer Rendering</strong> set the <strong>Opacity</strong> to 60%, so to blend the heatmap with the background. Click <strong>Apply</strong>. <em>This may take a few seconds.</em> Then click <strong>OK</strong>.</li>
+</ul>
+<p>We now have created a rather nice visualisation of all bearers of <em>Van Dijk</em> in Great Britain - The <strong>GIF</strong> below summarises these steps:</p>
+</div>
+<div id="tasks-1" class="section level2 unnumbered">
+<h2>Tasks</h2>
+<p>That was not too difficult. Feel free to play around with different colours, settings and visualisation options. In addition:</p>
+<ul>
+<li>Create a heatmap layer for: <em>Novak</em> and <em>Longley</em>.</li>
+<li>Visually comparing the distributions of the <em>Novak</em>, <em>Longley</em> and <em>Van Dijk</em> surname heatmaps by toggling the different surname layers on and off. Any similarities?</li>
+</ul>
+</div>
 </div>
 
 

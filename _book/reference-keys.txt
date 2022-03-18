@@ -10,3 +10,5 @@ fig:organise-data
 fig:inspect-data
 fig:load-surname-data
 fig:zoom-surname
+fig:changing-symbology
+tasks-1
