@@ -39,7 +39,6 @@ qgis-processing-toolbox
 displaying-kde-values
 extracting-kde-values
 task-s3
-map-export
 kde-map
+map-export
 task-s4
-pay-attention-to

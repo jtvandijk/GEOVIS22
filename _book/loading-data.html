@@ -151,17 +151,17 @@ Figure 1.1: Download page for QGIS. <a href="https://jtvandijk.github.io/GEOVIS2
 </div>
 <div class="note">
 <p><strong>Note</strong> <br />
-The instructions provided are based on <a href="https://qgis.org/en/site/forusers/download.html">QGIS 3.16</a> (long term release) for <a href="https://www.microsoft.com/en-gb/windows?r=1">Windows</a>. These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operating systems (specifically <a href="https://www.apple.com/uk/macos/monterey/">macOS</a>). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.</p>
+The instructions for this tutorial are based on <a href="https://qgis.org/en/site/forusers/download.html">QGIS 3.16</a> (long term release) for <a href="https://www.microsoft.com/en-gb/windows?r=1">Windows</a>. These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operating systems (specifically <a href="https://www.apple.com/uk/macos/monterey/">macOS</a>). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.</p>
 </div>
 </div>
 <div id="data-preparation" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Data preparation</h2>
-<p>We have prepared several datasets with the locations of the bearers of five different surnames (<em>Longley</em>, <em>Van Dijk</em>, <em>Novak</em>, <em>Smith</em>, and <em>Rossall</em>) that are present in Great Britain in 2016. In addition to the surname data, we also prepared a dataset containing the simplified boundaries of Great Britain and a dataset containing the names of locations of several large cities. We will use these simplified boundaries and cities to contextualise our map.</p>
+<p>We have prepared several datasets with the recorded locations of the bearers of five different surnames (<em>Longley</em>, <em>Van Dijk</em>, <em>Novak</em>, <em>Smith</em>, and <em>Rossall</em>) present in Great Britain in 2016. In addition to the surname data, we also prepared a dataset containing the simplified boundaries of Great Britain and a dataset containing the geolocated names of several large cities within the country. We will use these simplified boundaries and city names to contextualise our map.</p>
 <div class="note">
 <p><strong>Note</strong> <br/>
 For privacy reasons the surname data you will be using are not actual data but are made to closely represent the actual data.</p>
 </div>
-<p>Download both files to the <code>Downloads</code> folder on computer by following the links below.</p>
+<p>Let’s get started by downloading the three files below to the <code>Downloads</code> folder on computer.</p>
 <div id="file-download" class="section level4 unnumbered">
 <h4>File download</h4>
 <table>
@@ -190,9 +190,9 @@ For privacy reasons the surname data you will be using are not actual data but a
 </tr>
 </tbody>
 </table>
-<p>After downloading all three files, go to your <code>Downloads</code> folder and make you unzip both files:</p>
+<p>After downloading all three files, go to your <code>Downloads</code> folder and unzip the files you just downloaded:</p>
 <ul>
-<li>On Windows you can do this by right clicking on the <code>surname_data.zip</code> and <code>gb_outline.zip</code> folders and opting for <strong>Extract all</strong>.</li>
+<li>On Windows you can do this by right clicking on the <code>surname_data.zip</code>, <code>gb_cities.zip</code>, and <code>gb_outline.zip</code> folders and opting for <strong>Extract all</strong>.</li>
 <li>On macOS you can double click on the zipped folders to extract them.</li>
 </ul>
 <p>The data, which was stored in a compressed format (<code>zip</code>), should now be extracted and ready for use within QGIS. Your <code>Downloads</code> folder should look something like this:</p>
@@ -211,7 +211,7 @@ Figure 1.3: Your working directory is now all set up. <a href="https://jtvandijk
 </div>
 <div class="note">
 <p><strong>Note</strong> <br/>
-The <code>gb_outline</code> and <code>gb_cities</code> files that we downloaded are something called a <code>shapefile.</code> A <code>shapefile</code> is a file that GIS software uses to store spatial data. In the case of a shapefile this is in actual fact a misnomer because a <code>shapefile</code> consists of a <strong>collection of files</strong>. Without going into detail: each of these files does something slightly different and the the software we will be using requires needs all of them in order to understand the data.</p>
+The <code>gb_outline</code> and <code>gb_cities</code> files that we downloaded are something called <code>shapefiles.</code> A <code>shapefile</code> is a file that GIS software uses to store spatial data. In the case of a shapefile this is in actual fact a misnomer because<code>shapefile</code> consists of a <strong>collection of files</strong>. Without going into detail: each of these files does something slightly different and the software we will be using requires all of them in order to understand the data.</p>
 </div>
 </div>
 </div>
@@ -232,7 +232,7 @@ Figure 1.4:  The QGIS interface on Windows. <a href="https://jtvandijk.github.io
 Figure 1.5: Adding vector data. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/add_vector.png" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>Click on the three dots (<strong>…</strong>) next to the <strong>Vector Dataset(s)</strong> box and navigate to your <em>working directory</em>. Then go into your <code>gb_outline</code> folder and click on the <code>gb_outline</code> file with the <code>SHP File</code> type.</p>
+<p>Click on the three dots (<strong>…</strong>) next to the <strong>Vector Dataset(s)</strong> box, make sure that <strong>Source Type</strong> is set to <strong>File</strong>, and navigate to your <em>working directory</em>. Then go into your <code>gb_outline</code> folder and click on the <code>gb_outline</code> file with the <code>SHP File</code> type.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:add-shp"></span>
 <img src="images/geovis/add_shp.png" alt="Loading the `gb_outline` shapefile. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/add_shp.png){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
@@ -246,7 +246,7 @@ Figure 1.6: Loading the <code>gb_outline</code> shapefile. <a href="https://jtva
 Figure 1.7: Outline of Great Britain loaded. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/gb_loaded.png" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>Now repeat these steps for our <code>gb_cities</code> file, making sure again that inside your <code>gb_cities</code> folder you select the file with the <code>SHP File</code> type. You now will have both data loaded. One thing to note is that the colours of your <code>gb_outline</code> and <code>gb_cities</code> files may be different than the ones in the image - QGIS randomly picks a colour when a map layer is first loaded.</p>
+<p>Now repeat these steps for our <code>gb_cities</code> file, making sure again that inside your <code>gb_cities</code> folder you select the file with the <code>SHP File</code> type. You now will have both data loaded. One thing to note is that the colours of your <code>gb_outline</code> and <code>gb_cities</code> files may be different than the ones in the image - QGIS randomly picks a colour when a spatial layer is loaded.</p>
 <p>Before doing anything else, now would be a good time to save our QGIS project. Go to <strong>Project</strong> &gt; <strong>Save as</strong> and save your project in your <em>working directory</em> as <code>kde_map</code>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:save-project"></span>
 <img src="images/geovis/save_project.png" alt="Saving your QGIS project. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/save_project.png){target=&quot;_blank&quot;}" width="850pt" />
@@ -272,7 +272,7 @@ Figure 1.9: Organising the order of our data and changing symbology. <a href="ht
 <p><strong>Note</strong> <br />
 The surname files that we downloaded are in a so-called <code>csv</code> format. <code>csv</code> stands for comma (or character) separated values. A <code>csv</code> file can be thought of as stripped down Excel spreadsheets in which every column of data is separated by a comma. If you open a <code>csv</code> file within Excel, however, it will look “normal”.</p>
 </div>
-<p>Navigate to your <code>working directory</code> and go to <code>surname_date</code>. Now open the <code>bearers_of_vandijk</code> file using Excel.</p>
+<p>Navigate to your <code>working directory</code> and go to <code>surname_data</code>. Now open the <code>bearers_of_vandijk</code> file using Excel.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:inspect-data"></span>
 <img src="images/geovis/inspect_data.gif" alt="Inspecting our crime data `csv`. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/inspect_data.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
@@ -286,9 +286,9 @@ Figure 1.10: Inspecting our crime data <code>csv</code>. <a href="https://jtvand
 <p>Now we know what we are dealing with, we can load our surname data into QGIS. To do so, there are several steps we need to take:</p>
 <ul>
 <li>Go to <strong>Layer</strong> &gt; <strong>Add Layer</strong> &gt; <strong>Add Delimited Text Layer …</strong>. Because our data is a <code>csv</code> file we need to load it as a file in which columns are delimited by a certain character; a comma in our case.</li>
-<li>Click on the three dots (<em>…</em>) next to the <strong>File name</strong> box and navigate to your <em>working directory</em>. Then go into your <code>surname_data</code> folder and <strong>Open</strong> the <code>bearers_of_vandijk</code> file.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>File name</strong> box and navigate to your <em>working directory</em>. Then go into your <code>surname_data</code> folder and <strong>Open</strong> the <code>bearers_of_vandijk</code> file.</li>
 <li>Under <strong>Geometry Definitions</strong> make sure that <strong>X field</strong> is set to <code>x</code> and <strong>Y field</strong> is set to <code>y</code>. Here we inform QGIS that we are dealing with locations.</li>
-<li>Without going into further details, we need to tell QGIS in which projection our crime locations are recorded. With a projection QGIS will know how to plot the crime locations on their correct positions. To do so, still under <strong>Geometry Definitions</strong> tab, click on the <strong>Select CRS</strong> button. You will find this is directly next to the <em>invalid projection</em> message. In the <strong>Filter</strong> box type: <code>EPSG 27700</code>. Only one option should show up: <code>OSGB 1936 / British National Grid</code>. Select this option and click <strong>OK</strong>.</li>
+<li>Without going into further details, we need to tell QGIS in which projection our surname locations are recorded. With a projection QGIS will know how to plot the surname locations on their correct positions. To do so, still under <strong>Geometry Definitions</strong> tab, click on the <strong>Select CRS</strong> button. You will find this is directly next to the <em>invalid projection</em> message. In the <strong>Filter</strong> box type: <code>EPSG 27700</code>. Only one option should show up: <code>OSGB 1936 / British National Grid</code>. Select this option and click <strong>OK</strong>.</li>
 <li>Now click <strong>Add</strong>. <em>For large datasets this may take a little bit of time!</em> Click <strong>Close</strong> to exit the dialog box.</li>
 </ul>
 <p>The <strong>GIF</strong> below summarises these steps:</p>

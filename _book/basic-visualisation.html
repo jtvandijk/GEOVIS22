@@ -155,7 +155,7 @@
 <ul>
 <li>Right click on the <code>gb_cities</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>.</li>
 <li>Under the <strong>Symbology</strong> tab make sure that the selection is set to <strong>Single Symbol</strong> (the default) and click on <strong>Simple Marker</strong>.</li>
-<li>Change the the size of the marker to to <em>2.4</em> and, using the dropdown menu button next to <strong>Stroke style</strong>, set the <strong>Stroke style</strong> to <strong>No Pen</strong>. Click <strong>Apply</strong>.</li>
+<li>Change the the size of the marker to to <code>2.4</code> and, using the dropdown menu button next to <strong>Stroke style</strong>, set the <strong>Stroke style</strong> to <strong>No Pen</strong>. Click <strong>Apply</strong>.</li>
 <li>Now click on the <strong>Labels</strong> tab and change the <strong>No Labels</strong> setting to <strong>Single Labels</strong>.<br />
 </li>
 <li>Click on the <strong>Value</strong> dropdown menu button and make sure that <strong>Value</strong> is set to <em>city</em>. This is the variable containing the names of our cities. Click <strong>Apply</strong> and click <strong>OK</strong>.</li>
@@ -164,9 +164,10 @@
 <ul>
 <li>Right click on the <code>bearers_of_vandijk</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>.</li>
 <li>Under the <strong>Symbology</strong> tab make sure that the selection is set to <strong>Single Symbol</strong> (the default), click on <strong>dot blue</strong> and click on <strong>Simple Marker</strong>.</li>
-<li>Change the the size of the marker to to <em>2</em> and, using the dropdown menu button next to <strong>Stroke style</strong>, set the <strong>Stroke style</strong> to <strong>No Pen</strong>. Click <strong>Apply</strong> and click <strong>OK</strong>.</li>
+<li>Change the the size of the marker to to <code>2</code> and, using the dropdown menu button next to <strong>Stroke style</strong>, set the <strong>Stroke style</strong> to <strong>No Pen</strong>. Click <strong>Apply</strong> and click <strong>OK</strong>.</li>
 </ul>
-<p>Once you have updated the symbology of your three layers, you can reorganise the order of your layers to make sure tha the <code>gb_cities</code> layers is drawn on top. The QGIS screen now shows a map with an updated symbology, including our several large cities. The <strong>GIF</strong> below summarises these steps:</p>
+<p>Once you have updated the symbology of your three layers, you can reorganise the order of your layers to make sure tha the <code>gb_cities</code> layers is drawn on top. The QGIS screen should now show a map with an updated symbology, including our several large cities.</p>
+<p>The <strong>GIF</strong> below summarises the above steps:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:changing-symbology"></span>
 <img src="images/geovis/changing_symbology.gif" alt="Adding labels to our `gb_cities` layer and changing the symbology of our other layers. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/changing_symbology.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
@@ -180,10 +181,10 @@ Figure 2.1: Adding labels to our <code>gb_cities</code> layer and changing the s
 <ul>
 <li>Right click on the <code>bearers_of_vandijk</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>. Here we can change the symbology of the layer.</li>
 <li>At the top of the menu change <strong>Single Symbol</strong> to <strong>Heatmap</strong>.</li>
-<li>Using the drop down menu, change the <strong>Color ramp</strong> to <strong>Magma</strong> for a little more exciting map.</li>
-<li>Under <strong>Layer Rendering</strong> set the <strong>Opacity</strong> to 60%, so to blend the heatmap with the background. Click <strong>Apply</strong>. <em>This may take a few seconds.</em> Then click <strong>OK</strong>.</li>
+<li>Using the drop down menu, change the <strong>Color ramp</strong> to <strong>Magma</strong> for a little more exciting visualisation.</li>
+<li>Under <strong>Layer Rendering</strong> set the <strong>Opacity</strong> to <code>60%</code>, so to blend the heatmap with the background. Click <strong>Apply</strong>. <em>This may take a few seconds.</em> Then click <strong>OK</strong>.</li>
 </ul>
-<p>We now have created a rather nice visualisation of all bearers of <em>Van Dijk</em> in Great Britain - The <strong>GIF</strong> below summarises these steps:</p>
+<p>We now have created a rather nice, albeit basic, visualisation of all bearers of <em>Van Dijk</em> in Great Britain in 2016. The <strong>GIF</strong> below summarises these steps:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hot-name"></span>
 <img src="images/geovis/hot_name.gif" alt="Creating a basic heatmap of our *Van Dijk* surname layer. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/hot_name.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
@@ -193,12 +194,12 @@ Figure 2.2: Creating a basic heatmap of our <em>Van Dijk</em> surname layer. <a 
 </div>
 <div id="adding-a-basemap" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Adding a basemap</h2>
-<p>Based on the <code>gb_outline</code> and <code>gb_cities</code> layers, we are able to contextualise our heatmap. However, we can also add something called a <em>base map</em> layer. A base map is a layer with geographic information that serves as a background and is incredibly useful when you want to add some additional context to your map. We do need a little plugin to add this base map. We can do that as follows:</p>
+<p>Based on the <code>gb_outline</code> and <code>gb_cities</code> layers, we are able to contextualise our heatmap. However, we can also add something called a <em>basemap</em> layer. A basemap is a layer with geographic information that serves as a background and is incredibly useful when you want to add some additional context to your map. We do need a little plugin to add this base map. We can do that as follows:</p>
 <ul>
 <li>Go to <strong>Plugins</strong> &gt; <strong>Manage and Install Plugins …</strong>.</li>
 <li>Search for <strong>QuickMapServices</strong> and click on <strong>Install plugin</strong>.</li>
 <li>Once the plugin is installed you can go to <strong>Web</strong> &gt; <strong>QuickMapServices</strong> &gt; <strong>OSM</strong> &gt; <strong>OSM Standard</strong>. <em>OSM stands for <a href="https://www.openstreetmap.org/#map=6/54.910/-3.432">OpenStreetMap</a>. OpenStreetMap is a collaborative project to create a free editable geographic database of the world.</em> It may take a few seconds to load the base map.</li>
-<li>Now reorganise the layers</li>
+<li>You can untick the boxes of the <code>gb_cities</code> and <code>gb_outline</code> layers in the <strong>Layer</strong> panel, so you are only left with the OSM basemap with the heatmap drawn on top.</li>
 </ul>
 <p>The <strong>GIF</strong> below summarises these steps:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:adding-basemap"></span>
@@ -207,7 +208,7 @@ Figure 2.2: Creating a basic heatmap of our <em>Van Dijk</em> surname layer. <a 
 Figure 2.3: Adding a basemap layer. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/add_basemap.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>We now have some basic visualisation of some of our surname data - which brings us to the end of <strong>Section 2</strong>.</p>
+<p>We have now created a basic visualisation of some of our surname data - which brings us to the end of <strong>Section 2</strong>.</p>
 </div>
 <div id="task-s2" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Tasks</h2>

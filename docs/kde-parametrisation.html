@@ -142,12 +142,12 @@
 <h1><span class="header-section-number">3</span> KDE parametrisation</h1>
 <div id="kernel-density-estimation" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Kernel Density Estimation</h2>
-<p>Where the <strong>heatmap</strong> symbology is a nice way to quickly visualise a set of point data, there is only few options to change the result. A more advanced way to analyse the density of a point process, is through something called <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel Density Estimation</a> (KDE). KDE is a statistical technique to generate a smooth continuous distribution between data points that represent the density of the underlying pattern.</p>
+<p>Where the <strong>heatmap</strong> symbology is a nice way to quickly visualise a set of point data, you only have little control over the final result. A more advanced way to analyse the density of a point process, is through something called <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel Density Estimation</a> (KDE). KDE is a statistical technique to generate a smooth continuous distribution between data points that represent the density of the underlying pattern.</p>
 <div class="note">
 <p><strong>Note</strong> <br />
 The <strong>heatmap</strong> that we created through the <strong>Symbology</strong> tab is in actual fact created by an <em>on the fly</em> KDE calculation with a set of default parameters.</p>
 </div>
-<p>When executing a KDE, a surface is produced (for the connoisseurs: a <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm">raster dataset</a>) that details the estimated distribution of our event point data over space. Each cell within the raster contains a value that is this estimated density at that location; when visualised in its entirety as the whole raster, we can quickly identify areas of high and low density, i.e. where are clusters are located in our dataset. To create this surface, a KDE computes a localised density for small subsets of our study area using overlapping windows, called a kernel. A kernel defines the shape and size of the window and can also weight the points, using a defined kernel function. The simplest kernel function is a basic kernel where each point in the kernel window is assigned equal weight. When we use a different kernel type, we are looking to weight the points within our kernel differently:</p>
+<p>When executing a KDE, a surface is produced (for the connoisseurs: a <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm">raster dataset</a>) that details the estimated distribution of our event point data over space. Each cell within the raster contains a value that represents this estimated density at that location; when visualised in its entirety as the whole raster, we can quickly identify areas of high and low density, i.e. where clusters are located in our dataset. To create this surface, a KDE computes a localised density for small subsets of our study area using overlapping windows, called kernels. A kernel defines the shape and size of the window and can also weight the points, using a pre-defined kernel function. The simplest kernel function is a basic kernel where each point in the kernel window is assigned equal weight. When we use a different kernel type, we are looking to weight the points within our kernel differently:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:kernel-type"></span>
 <img src="images/geovis/kerneltypes.png" alt="Kernel types and their distributions." width="650pt" />
 <p class="caption">
@@ -161,12 +161,12 @@ Figure 3.1: Kernel types and their distributions.
 <p>The kernel density approach generates a grid of density values whose cell size is smaller than that of the kernel window. Each cell is assigned the density value computed for the kernel window centered on that cell. The size of this window is called the <strong>bandwidth</strong>. The resulting surface is created from these individually, locally calculated density values. Another way to think about it is as a smoothed histogram, but now created in two-dimensional space. The explanation by <em>Jake VanderPlas</em> in his <a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html">Python Data Science Handbook</a> explains this idea in much more detail and very clearly.</p>
 <div class="note">
 <p><strong>TL;DR</strong> <br />
-A Kernel Density Estimation (KDE) is the method that underlies the idea of a heatmap: creating a smoothed surface of a set of discrete locations.</p>
+A Kernel Density Estimation (KDE) is a well-known method that underlies the idea of a heatmap: creating a smoothed surface of a set of discrete locations. It takes two parameters: kernel type (i.e. shape of the window) and bandwidth (i.e. size of the window).</p>
 </div>
 </div>
 <div id="qgis-processing-toolbox" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> QGIS processing toolbox</h2>
-<p>Where we can use the <strong>heatmap</strong> symbology to create a quick-and-dirty KDE surface to visualise a set of points, QGIS also comes with a set of geospatial processing tools that can be used to execute a variety of spatial analyses. One of these processing tools is called <strong>Kernel Density Estimation</strong>. The difference between the <strong>heatmap</strong> and the geospatial processing tool is that the latter gives the option to finetune the parameters of the KDE as well as that it allows you to save the output as a separate data file. Let’s run a KDE on your <code>bearers_of_vandijk</code> layer, but this time using the <strong>Processing Toolbox</strong>:</p>
+<p>Where we can use the <strong>heatmap</strong> symbology to create a quick-and-dirty KDE surface to visualise a set of points, QGIS also comes with a set of geospatial processing tools that can be used to execute a variety of spatial analyses. One of these processing tools is called <strong>Kernel Density Estimation</strong>. The difference between the <strong>heatmap</strong> and the geospatial processing tool is that the latter gives the option to finetune the parameters of the KDE as well as that it allows you to save the output as a separate data file. Let’s run a KDE on the <code>bearers_of_vandijk</code> layer, but this time using the geospoatial processing tool found in the <strong>Processing Toolbox</strong>:</p>
 <ul>
 <li>In the main menubar, click on the <strong>Toolbox</strong> button to open the <strong>Processing Toolbox</strong>:
 <br /><br />
@@ -185,7 +185,7 @@ If the <strong>Toolbox</strong> button is not visible it is likely that the <str
 </div>
 <ul>
 <li>In the <strong>Heatmap (Kernel Density Estimation)</strong> dialogue box, select <code>bearers_of_vandijk</code> as your <strong>Point Layer</strong>.</li>
-<li>Change the <strong>Radius</strong> to <code>10</code>. Click on the <strong>unit</strong> dropdown menu button and make sure that it is set to <em>kilometers</em>.</li>
+<li>Change the <strong>Radius</strong> to <code>10</code>. Click on the <strong>unit</strong> dropdown menu button and make sure that it is set to <code>kilometers</code>.</li>
 <li>In the <strong>Output raster size</strong> section, change the <strong>Rows</strong> to <code>500</code>, the value for <strong>Columns</strong> should update automatically to <code>310</code>.</li>
 <li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Create a new folder named <code>surname_kde</code> and save the output of this geoprocessing tool as <code>kde_vandijk_10km</code>.</li>
 <li>Click <strong>Save</strong> and click <strong>Run</strong> to calculate the KDE. Click <strong>Close</strong>.</li>
@@ -197,27 +197,27 @@ If the <strong>Toolbox</strong> button is not visible it is likely that the <str
 Figure 3.2: Calculating a KDE with a bandwidth of 10km for the bearers of <em>Van Dijk</em>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_10km.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>The result is a smoothed version of the spatial point locations that represent all bearers of the surname <code>Van Dijk</code>. To be fair: it does look a little bit as if we only changed the symbology. Let’s calculate another KDE, but this time we will use a larger bandwidth of <code>30</code> kilometres instead of the <code>10</code> kilometres we have used previously. The <strong>GIF</strong> below summarises these steps:</p>
+<p>The result is a smoothed version of the spatial point locations that represent all bearers of the surname <code>Van Dijk</code>. To be fair: it does look a little bit as if we only changed the symbology. Let’s calculate another KDE, but this time we will use a larger bandwidth of <code>30</code> kilometres instead of the <code>10</code> kilometres we have used just now. The <strong>GIF</strong> below summarises these steps again:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:kde-30"></span>
 <img src="images/geovis/kde_30km.gif" alt="Calculating a KDE with a bandwidth of 30km for the bearers of *Van Dijk*. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_30km.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
 Figure 3.3: Calculating a KDE with a bandwidth of 30km for the bearers of <em>Van Dijk</em>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_30km.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>Although not exactly pretty, the KDE layers show an estimate of “how many bearers” of <em>Van Dijk</em> are expected in each of the individual grid cells of our layer. Currently, as can be seen in the <strong>Layers</strong> panel, for the <code>kde_vandijk_30km</code> the highest density is <code>28.2531</code>. This highest density seems to be concentrated in London - you can toggle the <code>gb_cities</code> layer to confirm.</p>
+<p>Although not exactly pretty, the KDE layers show an estimate of “how many bearers” of <em>Van Dijk</em> are expected in each of the individual grid cells of our layer. Currently, as can be seen in the <strong>Layers</strong> panel, for the <code>kde_vandijk_30km</code> the highest density is <code>28.2531</code>. This highest density seems to be concentrated in London - you can toggle the visibility of the <code>gb_cities</code> layer to confirm.</p>
 </div>
 <div id="displaying-kde-values" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Displaying KDE values</h2>
-<p>We now have calculated two KDEs, however, the quick heatmap we created earlier by changing the symbology of our point layer looked much better. Let’s do something about this by changing the symbology of our <code>kde_vandijk_30km</code> layer. We will also adjust the minimum visible density to only show the areas in which the bearers of <em>Van Dijk</em> are mostly concentrated.</p>
+<p>We now have calculated two KDEs, however, the quick heatmap we created earlier by changing the symbology of our point layer looked much better. Let’s do something about this by changing the symbology of our <code>kde_vandijk_30km</code> spatial data layer. We will also adjust the minimum visible density to only show the areas in which the bearers of <em>Van Dijk</em> are relatively more concentrated.</p>
 <ul>
 <li>Switch off the visibility of the <code>kde_vandijk_10km</code> layer in the <strong>Layers</strong> panel by unticking the checkbox in front of the layer.</li>
-<li>Right click on the <code>kde_vandijk_30km</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>. Here we can change the symbology of the layer.</li>
-<li>Change the <strong>Color gradient</strong> to <em>White to black</em>.</li>
+<li>Right click on the <code>kde_vandijk_30km</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>.</li>
+<li>Change the <strong>Color gradient</strong> to <code>White to black</code>.</li>
 <li>Change the minimum and maximum value of this <strong>Color gradient</strong> to <code>5</code> and <code>28.2531</code>, respectively.</li>
 <li>Use the <strong>Contrast enhancement</strong> dropdown menu to select the <em>Stretch and Clip to MinMax</em> option.</li>
 <li>Click <strong>Apply</strong>. Click <strong>OK</strong>.</li>
 </ul>
-<p>We now have a much better visualisation with darker areas indicating higher densities of the bearers of <em>Van Dijk</em>. The <strong>GIF</strong> below summarises these steps:</p>
+<p>We now have a much better visualisation with darker areas indicating higher densities of the bearers of <em>Van Dijk</em>. See the <strong>GIF</strong> below for a summary of these steps:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:kde-vis"></span>
 <img src="images/geovis/kde_vis.gif" alt="Changing the KDE visualisation parameters. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_vis.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
@@ -231,33 +231,33 @@ Figure 3.4: Changing the KDE visualisation parameters. <a href="https://jtvandij
 <ul>
 <li>In the <strong>Processing Toolbox</strong> search bar type: <em>Raster calculator</em>.</li>
 <li>Double click on: <strong>Raster calculator</strong>.</li>
-<li>In the <strong>Expression</strong> toolbox type: <code>"kde_vandijk_30km@1 / (kde_vandijk_30km@1 &gt; 5)"</code>. This is to ensure that the calculation will only return values of 5 and above.</li>
-<li>Click on the three dots (<strong>…</strong>) next to the <strong>referecne layer(s) (used for automated extend, cellsize and CRS) [optional]</strong> box and tick the box in front of <em>kde_vandijk_30km [EPSG:277000]</em>. Click <strong>OK</strong>.</li>
-<li>In the <strong>Output CRS [optional]</strong> dropdown menu, select <em>Project CRS: EPSG:27700 - OSGB 1936 / British National Grid</em>.</li>
+<li>In the <strong>Expression</strong> toolbox type: <code>"kde_vandijk_30km@1" / ("kde_vandijk_30km@1" &gt; 5)</code>. This is to ensure that the calculation will only return values above 5.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>Reference layer(s) (used for automated extend, cellsize and CRS) [optional]</strong> box and tick the box in front of <code>kde_vandijk_30km [EPSG:277000]</code>. Click <strong>OK</strong>.</li>
+<li>In the <strong>Output CRS [optional]</strong> dropdown menu, select <code>Project CRS: EPSG:27700 - OSGB 1936 / British National Grid</code>.</li>
 <li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Save the output in your<code>surname_kde</code> folder as <code>kde_vandijk_10km_5min</code>.</li>
 <li>Click <strong>Run</strong>. Click <strong>Close</strong>.</li>
 </ul>
-<p>We have now created a full, separate, new layer, only containing the raster cells where there is at least 5 bearers of <em>Van Dijk</em> expected. The <strong>GIF</strong> below summarises these steps:</p>
+<p>We have now created a full, separate, new layer, only containing the raster cells where there is at least 5 bearers of <em>Van Dijk</em> expected. All steps are recorded in the <strong>GIF</strong> below:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rast-calc"></span>
 <img src="images/geovis/rast_calc.gif" alt="Extracting KDE values from our raster layer.  [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/rast_calc.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
 Figure 3.5: Extracting KDE values from our raster layer. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/rast_calc.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>In a final step, we may want to change the data type in which our selected KDE values is stored, for instance, because we want to visualise the KDE as contour lines. We can do this as follows:</p>
+<p>In a final step, we may want to change the data type in which our selected KDE values is stored, for instance, because we want to visualise the KDE values as <a href="https://en.wikipedia.org/wiki/Contour_line">contour lines</a> / with <a href="https://en.wikipedia.org/wiki/Contour_line">contour lines</a>. We can do this as follows:</p>
 <ul>
 <li>In the top menu bar click on <strong>Raster</strong> &gt; <strong>Extraction</strong> &gt; <strong>Contour …</strong>.</li>
 <li>Select <code>kde_vandijk_10km_5min [EPSG:277000]</code> as the <strong>Input layer</strong>.</li>
-<li>In the <strong>Interval between contour lines</strong> box, leave the value as 10.</li>
+<li>In the <strong>Interval between contour lines</strong> box, leave the value set as <code>10</code>.</li>
 </ul>
 <div class="note">
 <p><strong>Note</strong> <br />
-Please note that the value for the <strong>Interval between contour lines</strong> strongly depends on the range of input values that your dataset contains. In our current dataset the highest value is <code>28.2531</code> so we can safely keep the default. If we were to create contour lines for a surname like <em>Smith</em>, with over individual bearers in Great Britain, we should select a much higher value.</p>
+Please note that the value for the <strong>Interval between contour lines</strong> strongly depends on the range of input values that your dataset contains. In our current dataset the highest value is <code>28.2531</code> so we can safely keep the default. If we were to create contour lines for a surname like <em>Smith</em>, with over individual bearers in Great Britain, we should select a much higher value to avoid a large number of (almost) overlapping lines.</p>
 </div>
 <ul>
-<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Save the output in your<code>surname_kde</code> folder as <code>kde_vandijk_10km_5min_contours</code>. Make sure to select <em>SHP files (*.shp)</em> in the <strong>Save as type</strong> dropdown menu. Click <strong>Save</strong>.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box, click on <strong>Save to File …</strong>, and navigate to your <em>working directory</em>. Save the output in your <code>surname_kde</code> folder as <code>kde_vandijk_10km_5min_contours</code>. Make sure to select <code>SHP files (*.shp)</code> in the <strong>Save as type</strong> dropdown menu. Click <strong>Save</strong>.</li>
 <li>Click <strong>Run</strong>. Click <strong>Close</strong>.</li>
-<li>A new layer is added to your <strong>Layers</strong> panel containing the contour lines for the bearers of <em>Van Dijk</em> that we can now style in the same fashion as we have done with some of our previous layers.</li>
+<li>A new layer is added to your <strong>Layers</strong> panel containing the contour lines for the bearers of <em>Van Dijk</em> that we can now style through the <strong>Symbology</strong> tab in the layer’s <strong>Properties</strong> menu in the same fashion as we have done with some of our previous layers.</li>
 </ul>
 <p>The <strong>GIF</strong> below summarises these steps:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:to-vec"></span>
@@ -270,16 +270,16 @@ Figure 3.6: Extracting contour lines from our raster layer. <a href="https://jtv
 </div>
 <div id="task-s3" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Tasks</h2>
-<p>We now have created a Kernel Density Estimation for the bearers of <em>Van Dijk</em> using two different bandwidths. Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the <strong>Kernel Density Estimation</strong> geoprocessing tool). In addition, using the <em>Van Dijk</em> dataset, or try to see how the results are affected:</p>
+<p>We now have created a Kernel Density Estimation for the bearers of <em>Van Dijk</em> using two different bandwidths. Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the <strong>Kernel Density Estimation</strong> geoprocessing tool). In addition, using the <em>Van Dijk</em> dataset, try to see how the results are affected:</p>
 <ul>
-<li>When selecting a different kernel in your Kernel Density Estimation.</li>
-<li>When you use a very small bandwidth.</li>
-<li>When using a relatively large bandwidth.</li>
-<li>If you change the grid size on which your Kernel Density Estimation is outputted.</li>
+<li>When you select a different kernel in your Kernel Density Estimation;</li>
+<li>When you use a relatively small bandwidth for your calculation;</li>
+<li>When using a relatively large bandwidth for your calculation; and,</li>
+<li>When you change the grid size on which your Kernel Density Estimation is outputted.</li>
 </ul>
 <div class="note">
 <p><strong>Note</strong> <br />
-If you get an error in executing the <strong>Heatmap (Kernel Density Estimation)</strong> geoprocessing tool, double check the settings for the <strong>Output raster size</strong>. If the number of <strong>Rows</strong> and <strong>Columns</strong> is too large, the geoprocessing tool will fail as it will not be able to produce the output.</p>
+If you get an error in executing the <strong>Heatmap (Kernel Density Estimation)</strong> geoprocessing tool, double check the settings for the <strong>Output raster size</strong>. If the number of <strong>Rows</strong> and <strong>Columns</strong> is too large (e.g. the number of <strong>Rows</strong> is closer to <code>10000</code> than to <code>500</code>), the geoprocessing tool will fail as it will not be able to produce the output.</p>
 </div>
 </div>
 </div>

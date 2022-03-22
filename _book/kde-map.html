@@ -146,40 +146,41 @@
 <ul>
 <li>Go to <strong>Project</strong> &gt; <strong>New Print Layout …</strong>.</li>
 <li>Give it a name, e.g. <code>kde_map</code>.</li>
-<li>A new window opens up. In the toolbar on the left hand side, click on the <strong>Add map</strong> button:
+<li>A new window opens up. In the toolbar on the left hand side of this new window (i.e. the so-called <strong>Print Layout</strong>), click on the <strong>Add map</strong> button:
 <br /><br />
 <img src="images/geovis/add_map.png" width="50pt" style="display: block; margin: auto;" />
 <br /><br /></li>
-<li>Draw a box on the canvas. The KDE surname map should now appear.</li>
+<li>Draw a box on the canvas. The KDE surname map, with all the active map layers, should now appear.</li>
 <li>In the toolbar on the left hand side, click on the <strong>Move item content</strong> button:
 <br /><br />
 <img src="images/geovis/move_map.png" width="50pt" style="display: block; margin: auto;" />
 <br /><br /></li>
-<li>Within the box you have drawn, reposition the map to your liking.</li>
-<li>The toolbar on the left hand side contains several other options to style your map such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. <em>There are lots of options to play around with!</em></li>
-<li>Once you are happy with your map, you can save your map by going to <strong>Layout</strong> &gt; <strong>Export as Image …</strong>. If you get a message popping up saying something about <em>Project Contains WMS Layers</em> just click on <strong>Close</strong>. Navigate to your <em>working directory</em>, create an optional <code>output</code> folder, give your map a name and click <strong>Save</strong>. Also click <strong>Save</strong> on the next window that pops up.</li>
+<li>Within the box you have drawn, you can now reposition the map layers to your liking.</li>
+<li>The toolbar on the left hand side contains several other options to style your map such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. So go ahead and make a pretty map. <em>There are lots of options to play around with!</em></li>
 </ul>
-<p>These steps should create an image which you should be able to find in your <em>working directory</em> that you can now open outside of QGIS. The <strong>GIF</strong> below summarises these steps:</p>
+<p>Once you are happy with your map, you can save your map by going to <strong>Layout</strong> &gt; <strong>Export as Image …</strong>. If you get a message popping up saying something about <em>Project Contains WMS Layers</em> just click on <strong>Close</strong>. Navigate to your <em>working directory</em>, create an optional <code>output</code> folder, give your map a name and click <strong>Save</strong>. Also click <strong>Save</strong> on the next window that pops up. These steps should create an image which you should be able to find in your <em>working directory</em> that you can now open outside of QGIS.</p>
+<p>The <strong>GIF</strong> below gives an example of these steps:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:export-map"></span>
 <img src="images/geovis/export_map.gif" alt="Finalising a map in the **Print Layout** and saving a map as an image. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif){target=&quot;_blank&quot;}" width="850pt" />
 <p class="caption">
 Figure 4.1: Finalising a map in the <strong>Print Layout</strong> and saving a map as an image. <a href="https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
-<p>Although the map probably needs a little TLC, the image is now ready to be used outside QGIS. This brings us to the end of <strong>Section 4</strong>.</p>
+<p>Although the map in the example probably needs a little TLC, the image is now ready to be used outside QGIS. This brings us to the end of <strong>Section 4</strong>.</p>
 <div class="note">
 <p><strong>Note</strong> <br/>
-There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps.</p>
+There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps. For more details and suggestions: the <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">QGIS manual</a> is an excellent resource for any information on how to change specific elements of your map layout.</p>
 </div>
 </div>
 <div id="task-s4" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Tasks</h2>
-<p>Now we have been through all the steps from data loading, to making a quick visualisation and creating a full Kernel Density Estimation, you can now try to repeat this with some of the other names and create a surname density maps for the names <em>Smith</em> and <em>Novak</em>.</p>
+<p>Now we have been through all the steps from data loading, to making a quick visualisation and executing a full Kernel Density Estimation, you can now try to repeat all the elements that we have covered with the surname datasets of <em>Smith</em> and <em>Novak</em> in order to create a surname density maps for these two spatially heterogeneous surnames.</p>
 <p>Some tips:</p>
 <ul>
-<li>Pay attention to the different sizes of the datasets, particulary the <em>Smith</em> dataset contains quite a few records; this may affect some of your KDE parameters and/or your extraction of contour levels.</li>
+<li>Pay attention to the different sizes of the datasets, particulary the <em>Smith</em> dataset contains quite a few records; this may affect some of your KDE parameters and, if using, your extraction of contour levels.</li>
 <li>Play around with the kernel type and bandwidth - you may want to use a different bandwidth for each of the names.</li>
-<li>The <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">QGIS manual</a> is an excellent resource for any background information on things like updating the layout of your maps.</li>
+<li>Refer to the <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">QGIS manual</a> for adjusting specific elements of your map layout.</li>
+<li>Google is your friend. When working in a GIS-environment you often will encounter some challenges - but in many cases someone else has had the same challenges and posted about them online!</li>
 </ul>
 </div>
 </div>
