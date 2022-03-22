@@ -41,7 +41,7 @@ Some general pointers:
 
 :::note
 **Note** <br />
-You can hide and show the sidebar (Table of Contents) with the **Toggle Sidebar** button in the menu bar at the top of the page.
+You can hide and show the sidebar (Table of Contents) of this webpage with the **Toggle Sidebar** button in the menu bar at the top of the page.
 :::
 
 # (PART\*) Section 1 {-}
@@ -55,7 +55,7 @@ knitr::include_graphics('images/geovis/qgis_download.png')
 
 :::note
 **Note** <br />
-The instructions provided are based on [QGIS 3.16](https://qgis.org/en/site/forusers/download.html) (long term release) for [Windows](https://www.microsoft.com/en-gb/windows?r=1). These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operation systems (specifically [macOS](https://www.apple.com/uk/macos/monterey/)). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.
+The instructions provided are based on [QGIS 3.16](https://qgis.org/en/site/forusers/download.html) (long term release) for [Windows](https://www.microsoft.com/en-gb/windows?r=1). These instructions should be (almost) identical for most QGIS 3.x versions as well as for most operating systems (specifically [macOS](https://www.apple.com/uk/macos/monterey/)). That being said: there may be some small differences here and there in terms of how the actual windows and tabs may look like.
 :::
 
 ## Data preparation 
@@ -118,7 +118,7 @@ Click on the three dots (**...**) next to the **Vector Dataset(s)** box and navi
 knitr::include_graphics('images/geovis/add_shp.png')
 ```
 
-Click **Open**. Then click **Add**. If you get a message popping up saying something about "Select Transformations for gb_outline" just click on **OK**. Now **Close** the dialog box. You should now see the outline of Great Britain loaded:
+Click **Open**. Then click **Add**. If you get a message popping up saying something along the lines of *Select Transformations for gb_outline* just click on **OK**. Now **Close** the dialog box. You should now see the outline of Great Britain loaded:
 
 ```{r gb-loaded, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Outline of Great Britain loaded. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/gb_loaded.png){target="_blank"}'}
 knitr::include_graphics('images/geovis/gb_loaded.png')
@@ -250,11 +250,13 @@ The **GIF** below summarises these steps:
 knitr::include_graphics('images/geovis/add_basemap.gif')
 ```
 
-## Tasks {#task-s2}
-That was not too difficult. Feel free to play around with different colours, settings and visualisation options. In addition:
+We now have some basic visualisation of some of our surname data - which brings us to the end of **Section 2**.
 
-- Create a heatmap layer for: *Novak*, *Longley*.
-- Visually compare the distributions of the *Novak*, *Longley* and *Van Dijk* surname heatmaps by toggling the different surname layers on and off. Any similarities? Which background layer do you find easier for these comparisions: the OSM basemap or the combination of the `gb_outline` and `gb_cities` layers?
+## Tasks {#task-s2}
+This section was not too difficult. Feel free to play around with different colours, settings and visualisation options. In addition:
+
+- Create a heatmap layer for: *Rossall*, *Longley*.
+- Visually compare the distributions of the *Rossall*, *Longley* and *Van Dijk* surname heatmaps by toggling the different surname layers on and off. Any similarities? Which background layer do you find easier for these comparisions: the OSM basemap or the combination of the `gb_outline` and `gb_cities` layers?
 
 # (PART\*) Section 3 {-}
 # KDE parametrisation
@@ -288,7 +290,7 @@ Where we can use the **heatmap** symbology to create a quick-and-dirty KDE surfa
 
 - In the main menubar, click on the **Toolbox** button to open the **Processing Toolbox**:
 <br /><br /> 
-```{r toolbox, echo=FALSE, fig.align='center'}
+```{r toolbox, echo=FALSE, out.width='50pt', fig.align='center'}
 knitr::include_graphics('images/geovis/toolbox.png')
 ```
 <br /><br />
@@ -377,8 +379,10 @@ The **GIF** below summarises these steps:
 knitr::include_graphics('images/geovis/to_vec.gif')
 ```
 
+With the extraction of the contour lines of the `kde_vandijk_30km_5min` layer, we have reached the end of **Section 3**.
+
 ## Tasks {#task-s3}
-We now have created a Kernel Density Estimation for the bearers of *Van Dijk* using two different bandwidths.  Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the **Kernel Density Estimation** geoprocessing tool). In addition, using either the *Van Dijk* dataset, or one of the other dataset, try to see how the results are affected:
+We now have created a Kernel Density Estimation for the bearers of *Van Dijk* using two different bandwidths. Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the **Kernel Density Estimation** geoprocessing tool). In addition, using the *Van Dijk* dataset, or try to see how the results are affected:
 
 - When selecting a different kernel in your Kernel Density Estimation.
 - When you use a very small bandwidth.
@@ -391,42 +395,50 @@ If you get an error in executing the **Heatmap (Kernel Density Estimation)** geo
 :::
 
 # (PART\*) Section 4 {-}
-# Map export
-## KDE map
-- Select layers for final map.
-
-## Print layout
-In this tutorial we have downloaded some surname data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS **Print Layout**:
+# KDE map
+## Map export
+In this tutorial we have acquired some surname data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS **Print Layout**:
 
 - Go to **Project** > **New Print Layout ...**.
 - Give it a name, e.g. `kde_map`. 
 - A new window opens up. In the toolbar on the left hand side, click on the **Add map** button:
 <br /><br /> 
-```{r add-map, echo=FALSE, fig.align='center'}
+```{r add-map, echo=FALSE, out.width='50pt', fig.align='center'}
 knitr::include_graphics('images/geovis/add_map.png')
 ```
 <br /><br />
 - Draw a box on the canvas. The KDE surname map should now appear.
-- Using the toolbar on the left hand side, there is several other options such as **Add scale bar**, **Add North Arrow**, and **Add Legend**. *There are lots of options to play around with!*
-- Once you are happy with your map, you can save your map by going to **Layout** > **Export as Image ...**. If you get a message popping up saying something about "Project Contains WMS Layers" just click on **Close**. Navigate to your *working directory*, give your map a name and click **Save**. Also click **Save** on the next window that pops up.
+- In the toolbar on the left hand side, click on the **Move item content** button:
+<br /><br />
+```{r move-map, echo=FALSE,  out.width='50pt', fig.align='center'}
+knitr::include_graphics('images/geovis/move_map.png')
+```
+<br /><br />
+- Within the box you have drawn, reposition the map to your liking.
+- The toolbar on the left hand side contains several other options to style your map such as **Add scale bar**, **Add North Arrow**, and **Add Legend**. *There are lots of options to play around with!*
+- Once you are happy with your map, you can save your map by going to **Layout** > **Export as Image ...**. If you get a message popping up saying something about *Project Contains WMS Layers* just click on **Close**. Navigate to your *working directory*, create an optional `output` folder, give your map a name and click **Save**. Also click **Save** on the next window that pops up.
 
-These steps should create an image which you should be able to find in your *working directory*. The **GIF** below summarises these steps:
+These steps should create an image which you should be able to find in your *working directory* that you can now open outside of QGIS. The **GIF** below summarises these steps:
 
 ```{r export-map, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Finalising a map in the **Print Layout** and saving a map as an image. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif){target="_blank"}'}
-#knitr::include_graphics('images/geovis/export_map.gif')
+knitr::include_graphics('images/geovis/export_map.gif')
 ```
 
-This image is now ready to be used outside QGIS!
+Although the map probably needs a little TLC, the image is now ready to be used outside QGIS. This brings us to the end of **Section 4**.
 
 :::note
 **Note** <br/>
-There are many more options on how to style the maps, so do play around with colours and settings when making your maps. 
+There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps. 
 :::
 
 ## Tasks {#task-s4}
+Now we have been through all the steps from data loading, to making a quick visualisation and creating a full Kernel Density Estimation, you can now try to repeat this with some of the other names and create a surname density maps for the names *Smith* and *Novak*.
 
-- make maps, include title, north arrow, use different projects for different surname data, combine (vector based) representations into one map to make comparisons easier. 
-- rather than using absolute values you can also scale the values; which may allow for a fairer comparisions when it comes to distrubtions -- try it out.
+Some tips:
+
+- Pay attention to the different sizes of the datasets, particulary the *Smith* dataset contains quite a few records; this may affect some of your KDE parameters and/or your extraction of contour levels.
+- Play around with the kernel type and bandwidth - you may want to use a different bandwidth for each of the names.
+- The [QGIS manual](https://docs.qgis.org/3.16/en/docs/training_manual/index.html) is an excellent resource for any background information on things like updating the layout of your maps.
 
 # (PART\*) Wrapping up {-}
 # Final considerations {-}

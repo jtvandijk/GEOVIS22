@@ -19,6 +19,7 @@ fig:kde-30
 fig:kde-vis
 fig:rast-calc
 fig:to-vec
+fig:export-map
 loading-data
 qgis-installation
 data-preparation
@@ -38,7 +39,6 @@ qgis-processing-toolbox
 displaying-kde-values
 extracting-kde-values
 task-s3
-map-export
 kde-map
-print-layout
+map-export
 task-s4

@@ -112,8 +112,7 @@
 <li class="chapter" data-level="4" data-path="map-export.html"><a href="map-export.html"><i class="fa fa-check"></i><b>4</b> Map export</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="map-export.html"><a href="map-export.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
-<li class="chapter" data-level="4.2" data-path="map-export.html"><a href="map-export.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
-<li class="chapter" data-level="4.3" data-path="map-export.html"><a href="map-export.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
+<li class="chapter" data-level="4.2" data-path="map-export.html"><a href="map-export.html#task-s4"><i class="fa fa-check"></i><b>4.2</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Wrapping up</b></span></li>
 <li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
@@ -143,12 +142,6 @@
 <h1><span class="header-section-number">4</span> Map export</h1>
 <div id="kde-map" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> KDE map</h2>
-<ul>
-<li>Select layers for final map.</li>
-</ul>
-</div>
-<div id="print-layout" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Print layout</h2>
 <p>In this tutorial we have downloaded some surname data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS <strong>Print Layout</strong>:</p>
 <ul>
 <li>Go to <strong>Project</strong> &gt; <strong>New Print Layout …</strong>.</li>
@@ -158,21 +151,31 @@
 <img src="images/geovis/add_map.png" width="36" style="display: block; margin: auto;" />
 <br /><br /></li>
 <li>Draw a box on the canvas. The KDE surname map should now appear.</li>
-<li>Using the toolbar on the left hand side, there is several other options such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. <em>There are lots of options to play around with!</em></li>
+<li>In the toolbar on the left hand side, click on the <strong>Move item content</strong> button:
+<br /><br />
+<img src="images/geovis/move_map.png" width="35" style="display: block; margin: auto;" />
+<br /><br /></li>
+<li>Within the box you have drawn, reposition the map to your liking.</li>
+<li>The toolbar on the left hand side contains several other options to style your map such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. <em>There are lots of options to play around with!</em></li>
 <li>Once you are happy with your map, you can save your map by going to <strong>Layout</strong> &gt; <strong>Export as Image …</strong>. If you get a message popping up saying something about “Project Contains WMS Layers” just click on <strong>Close</strong>. Navigate to your <em>working directory</em>, give your map a name and click <strong>Save</strong>. Also click <strong>Save</strong> on the next window that pops up.</li>
 </ul>
 <p>These steps should create an image which you should be able to find in your <em>working directory</em>. The <strong>GIF</strong> below summarises these steps:</p>
-<p>This image is now ready to be used outside QGIS!</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:export-map"></span>
+<img src="images/geovis/export_map.gif" alt="Finalising a map in the **Print Layout** and saving a map as an image. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 4.1: Finalising a map in the <strong>Print Layout</strong> and saving a map as an image. <a href="https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Although the map probably needs a little TLC, the image is now ready to be used outside QGIS. This brings us to the end of <strong>Section 4</strong>.</p>
 <div class="note">
 <p><strong>Note</strong> <br/>
-There are many more options on how to style the maps, so do play around with colours and settings when making your maps.</p>
+There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps.</p>
 </div>
 </div>
-<div id="task-s4" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Tasks</h2>
+<div id="task-s4" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Tasks</h2>
 <ul>
 <li>make maps, include title, north arrow, use different projects for different surname data, combine (vector based) representations into one map to make comparisons easier.</li>
-<li>rather than using absolute values you can also scale the values; which may allow for a fairer comparisions when it comes to distrubtions – try it out.</li>
 </ul>
 </div>
 </div>

@@ -102,12 +102,17 @@
 <li class="part"><span><b>Section 3</b></span></li>
 <li class="chapter" data-level="3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i><b>3</b> KDE parametrisation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.1</b> Tasks</a></li>
+<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#kernel-density-estimation"><i class="fa fa-check"></i><b>3.1</b> Kernel Density Estimation</a></li>
+<li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#qgis-processing-toolbox"><i class="fa fa-check"></i><b>3.2</b> QGIS processing toolbox</a></li>
+<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#displaying-kde-values"><i class="fa fa-check"></i><b>3.3</b> Displaying KDE values</a></li>
+<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extracting-kde-values"><i class="fa fa-check"></i><b>3.4</b> Extracting KDE values</a></li>
+<li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Section 4</b></span></li>
 <li class="chapter" data-level="4" data-path="kde-map.html"><a href="kde-map.html"><i class="fa fa-check"></i><b>4</b> KDE map</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="kde-map.html"><a href="kde-map.html#task-s4"><i class="fa fa-check"></i><b>4.1</b> Tasks</a></li>
+<li class="chapter" data-level="4.1" data-path="kde-map.html"><a href="kde-map.html#map-export"><i class="fa fa-check"></i><b>4.1</b> Map export</a></li>
+<li class="chapter" data-level="4.2" data-path="kde-map.html"><a href="kde-map.html#task-s4"><i class="fa fa-check"></i><b>4.2</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Wrapping up</b></span></li>
 <li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
@@ -135,26 +140,47 @@
             <section class="normal" id="section-">
 <div id="kde-map" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> KDE map</h1>
-<p>In this exercise we have downloaded some data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS <strong>Print Layout</strong>:</p>
+<div id="map-export" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Map export</h2>
+<p>In this tutorial we have acquired some surname data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS <strong>Print Layout</strong>:</p>
 <ul>
 <li>Go to <strong>Project</strong> &gt; <strong>New Print Layout …</strong>.</li>
 <li>Give it a name, e.g. <code>kde_map</code>.</li>
 <li>A new window opens up. In the toolbar on the left hand side, click on the <strong>Add map</strong> button:
 <br /><br />
-<img src="images/geovis/add_map.png" width="36" style="display: block; margin: auto;" />
+<img src="images/geovis/add_map.png" width="50pt" style="display: block; margin: auto;" />
 <br /><br /></li>
-<li>Draw a box on the canvas. The surname map should now appear.</li>
-<li>Using the toolbar on the left hand side, there is several other options such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. <em>There are lots of options to play around with!</em></li>
-<li>Once you are happy with your map, you can save your map by going to <strong>Layout</strong> &gt; <strong>Export as Image …</strong>. If you get a message popping up saying something about “Project Contains WMS Layers” just click on <strong>Close</strong>. Navigate to your <em>working directory</em>, give your map a name and click <strong>Save</strong>. Also click <strong>Save</strong> on the next window that pops up.</li>
+<li>Draw a box on the canvas. The KDE surname map should now appear.</li>
+<li>In the toolbar on the left hand side, click on the <strong>Move item content</strong> button:
+<br /><br />
+<img src="images/geovis/move_map.png" width="50pt" style="display: block; margin: auto;" />
+<br /><br /></li>
+<li>Within the box you have drawn, reposition the map to your liking.</li>
+<li>The toolbar on the left hand side contains several other options to style your map such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. <em>There are lots of options to play around with!</em></li>
+<li>Once you are happy with your map, you can save your map by going to <strong>Layout</strong> &gt; <strong>Export as Image …</strong>. If you get a message popping up saying something about <em>Project Contains WMS Layers</em> just click on <strong>Close</strong>. Navigate to your <em>working directory</em>, create an optional <code>output</code> folder, give your map a name and click <strong>Save</strong>. Also click <strong>Save</strong> on the next window that pops up.</li>
 </ul>
-<p>These steps should create an image which you should be able to find in your <em>working directory</em>. The <strong>GIF</strong> below summarises these steps:</p>
-<p>This image is now ready to be used outside QGIS!</p>
+<p>These steps should create an image which you should be able to find in your <em>working directory</em> that you can now open outside of QGIS. The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:export-map"></span>
+<img src="images/geovis/export_map.gif" alt="Finalising a map in the **Print Layout** and saving a map as an image. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 4.1: Finalising a map in the <strong>Print Layout</strong> and saving a map as an image. <a href="https://jtvandijk.github.io/GEOVIS/images/geovis/export_map.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Although the map probably needs a little TLC, the image is now ready to be used outside QGIS. This brings us to the end of <strong>Section 4</strong>.</p>
 <div class="note">
 <p><strong>Note</strong> <br/>
-There are many more options on how to style the maps, so do play around with colours and settings when making your maps.</p>
+There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps.</p>
 </div>
-<div id="task-s4" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Tasks</h2>
+</div>
+<div id="task-s4" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Tasks</h2>
+<p>Now we have been through all the steps from data loading, to making a quick visualisation and creating a full Kernel Density Estimation, you can now try to repeat this with some of the other names and create a surname density maps for the names <em>Smith</em> and <em>Novak</em>.</p>
+<p>Some tips:</p>
+<ul>
+<li>Pay attention to the different sizes of the datasets, particulary the <em>Smith</em> dataset contains quite a few records; this may affect some of your KDE parameters and/or your extraction of contour levels.</li>
+<li>Play around with the kernel type and bandwidth - you may want to use a different bandwidth for each of the names.</li>
+<li>The <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">QGIS manual</a> is an excellent resource for any background information on things like updating the layout of your maps.</li>
+</ul>
 </div>
 </div>
 

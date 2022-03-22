@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="basic-visualisation.html"/>
-<link rel="next" href="map-export.html"/>
+<link rel="next" href="kde-map.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -109,11 +109,10 @@
 <li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Section 4</b></span></li>
-<li class="chapter" data-level="4" data-path="map-export.html"><a href="map-export.html"><i class="fa fa-check"></i><b>4</b> Map export</a>
+<li class="chapter" data-level="4" data-path="kde-map.html"><a href="kde-map.html"><i class="fa fa-check"></i><b>4</b> KDE map</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="map-export.html"><a href="map-export.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
-<li class="chapter" data-level="4.2" data-path="map-export.html"><a href="map-export.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
-<li class="chapter" data-level="4.3" data-path="map-export.html"><a href="map-export.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
+<li class="chapter" data-level="4.1" data-path="kde-map.html"><a href="kde-map.html#map-export"><i class="fa fa-check"></i><b>4.1</b> Map export</a></li>
+<li class="chapter" data-level="4.2" data-path="kde-map.html"><a href="kde-map.html#task-s4"><i class="fa fa-check"></i><b>4.2</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Wrapping up</b></span></li>
 <li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
@@ -171,7 +170,7 @@ A Kernel Density Estimation (KDE) is the method that underlies the idea of a hea
 <ul>
 <li>In the main menubar, click on the <strong>Toolbox</strong> button to open the <strong>Processing Toolbox</strong>:
 <br /><br />
-<img src="images/geovis/toolbox.png" width="40" style="display: block; margin: auto;" />
+<img src="images/geovis/toolbox.png" width="50pt" style="display: block; margin: auto;" />
 <br /><br /></li>
 <li>In the search bar type: <em>Kernel Density Estimation</em>.</li>
 <li>Double click on: <strong>Heatmap (Kernel Density Estimation)</strong>.</li>
@@ -267,10 +266,11 @@ Please note that the value for the <strong>Interval between contour lines</stron
 Figure 3.6: Extracting contour lines from our raster layer. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/to_vec.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
+<p>With the extraction of the contour lines of the <code>kde_vandijk_30km_5min</code> layer, we have reached the end of <strong>Section 3</strong>.</p>
 </div>
 <div id="task-s3" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Tasks</h2>
-<p>We now have created a Kernel Density Estimation for the bearers of <em>Van Dijk</em> using two different bandwidths. Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the <strong>Kernel Density Estimation</strong> geoprocessing tool). In addition, using either the <em>Van Dijk</em> dataset, or one of the other dataset, try to see how the results are affected:</p>
+<p>We now have created a Kernel Density Estimation for the bearers of <em>Van Dijk</em> using two different bandwidths. Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the <strong>Kernel Density Estimation</strong> geoprocessing tool). In addition, using the <em>Van Dijk</em> dataset, or try to see how the results are affected:</p>
 <ul>
 <li>When selecting a different kernel in your Kernel Density Estimation.</li>
 <li>When you use a very small bandwidth.</li>
@@ -292,7 +292,7 @@ If you get an error in executing the <strong>Heatmap (Kernel Density Estimation)
         </div>
       </div>
 <a href="basic-visualisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="map-export.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="kde-map.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
