@@ -302,7 +302,7 @@ knitr::include_graphics('images/geovis/toolbox.png')
 If the **Toolbox** button is not visible it is likely that the **Processing** plugin is not properly activated. You can activate this as follows:
 
 - Go to **Plugins** > **Manage and Install Plugins ...**. 
-- Go to the **Installed** tab and type *processing* in the search box. Then tick the box in front of **Processing** off and on again to force reload the **Toolbox**. Click **Close**. [[See screenshot]](https://jtvandijk.github.io/GEOVIS22/images/geovis/processing_plugin.png){target="_blank"}
+- Go to the **Installed** tab and type *processing* in the search box. Then tick the box in front of **Processing** off and on again to force reload the **Toolbox**. Click **Close**. [[See screenshot]](https://raw.githubusercontent.com/jtvandijk/GEOVIS22/master/images/geovis/processing_plugin.png){target="_blank"}
 :::
 
 - In the **Heatmap (Kernel Density Estimation)** dialogue box, select `bearers_of_vandijk` as your **Point Layer**.
