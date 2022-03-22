@@ -18,6 +18,7 @@ fig:kde-10
 fig:kde-30
 fig:kde-vis
 fig:rast-calc
+fig:to-vec
 loading-data
 qgis-installation
 data-preparation

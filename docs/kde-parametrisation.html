@@ -148,7 +148,7 @@
 <p><strong>Note</strong> <br />
 The <strong>heatmap</strong> that we created through the <strong>Symbology</strong> tab is in actual fact created by an <em>on the fly</em> KDE calculation with a set of default parameters.</p>
 </div>
-<p>When executing a KDE, a surface is produced (for the connoisseurs: a <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm">raster dataset</a>) that details the estimated distribution of our event point data over space. Each cell within the raster contains a value that is this estimated density at that location; when visualised in its entirety as the whole raster, we can quickly identify areas of high and low density, i.e. where are clusters are located in our data set. To create this surface, a KDE computes a localised density for small subsets of our study area using overlapping windows, called a kernel. A kernel defines the shape and size of the window and can also weight the points, using a defined kernel function. The simplest kernel function is a basic kernel where each point in the kernel window is assigned equal weight. When we use a different kernel type, we are looking to weight the points within our kernel differently:</p>
+<p>When executing a KDE, a surface is produced (for the connoisseurs: a <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/what-is-raster-data.htm">raster dataset</a>) that details the estimated distribution of our event point data over space. Each cell within the raster contains a value that is this estimated density at that location; when visualised in its entirety as the whole raster, we can quickly identify areas of high and low density, i.e. where are clusters are located in our dataset. To create this surface, a KDE computes a localised density for small subsets of our study area using overlapping windows, called a kernel. A kernel defines the shape and size of the window and can also weight the points, using a defined kernel function. The simplest kernel function is a basic kernel where each point in the kernel window is assigned equal weight. When we use a different kernel type, we are looking to weight the points within our kernel differently:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:kernel-type"></span>
 <img src="images/geovis/kerneltypes.png" alt="Kernel types and their distributions." width="650pt" />
 <p class="caption">
@@ -245,21 +245,41 @@ Figure 3.4: Changing the KDE visualisation parameters. <a href="https://jtvandij
 Figure 3.5: Extracting KDE values from our raster layer. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/rast_calc.gif" target="_blank">[Enlarge image]</a>
 </p>
 </div>
+<p>In a final step, we may want to change the data type in which our selected KDE values is stored, for instance, because we want to visualise the KDE as contour lines. We can do this as follows:</p>
 <ul>
-<li>raster to vector to create area with at least n number of bearers</li>
-</ul>
-</div>
-<div id="task-s3" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Tasks</h2>
-<ul>
-<li>different kernels</li>
-<li>very small bandwidth</li>
-<li>very large bandwidth</li>
-<li>different grid size</li>
+<li>In the top menu bar click on <strong>Raster</strong> &gt; <strong>Extraction</strong> &gt; <strong>Contour …</strong>.</li>
+<li>Select <code>kde_vandijk_10km_5min [EPSG:277000]</code> as the <strong>Input layer</strong>.</li>
+<li>In the <strong>Interval between contour lines</strong> box, leave the value as 10.</li>
 </ul>
 <div class="note">
 <p><strong>Note</strong> <br />
-Error means no space &gt; probably grid is too large</p>
+Please note that the value for the <strong>Interval between contour lines</strong> strongly depends on the range of input values that your dataset contains. In our current dataset the highest value is <code>28.2531</code> so we can safely keep the default. If we were to create contour lines for a surname like <em>Smith</em>, with over individual bearers in Great Britain, we should select a much higher value.</p>
+</div>
+<ul>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Save the output in your<code>surname_kde</code> folder as <code>kde_vandijk_10km_5min_contours</code>. Make sure to select <em>SHP files (*.shp)</em> in the <strong>Save as type</strong> dropdown menu. Click <strong>Save</strong>.</li>
+<li>Click <strong>Run</strong>. Click <strong>Close</strong>.</li>
+<li>A new layer is added to your <strong>Layers</strong> panel containing the contour lines for the bearers of <em>Van Dijk</em> that we can now style in the same fashion as we have done with some of our previous layers.</li>
+</ul>
+<p>The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:to-vec"></span>
+<img src="images/geovis/to_vec.gif" alt="Extracting contour lines from our raster layer.  [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/to_vec.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 3.6: Extracting contour lines from our raster layer. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/to_vec.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+</div>
+<div id="task-s3" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Tasks</h2>
+<p>We now have created a Kernel Density Estimation for the bearers of <em>Van Dijk</em> using two different bandwidths. Feel free to play around with different colours, settings and visualisation options (e.g. when visualising the output of the <strong>Kernel Density Estimation</strong> geoprocessing tool). In addition, using either the <em>Van Dijk</em> dataset, or one of the other dataset, try to see how the results are affected:</p>
+<ul>
+<li>When selecting a different kernel in your Kernel Density Estimation.</li>
+<li>When you use a very small bandwidth.</li>
+<li>When using a relatively large bandwidth.</li>
+<li>If you change the grid size on which your Kernel Density Estimation is outputted.</li>
+</ul>
+<div class="note">
+<p><strong>Note</strong> <br />
+If you get an error in executing the <strong>Heatmap (Kernel Density Estimation)</strong> geoprocessing tool, double check the settings for the <strong>Output raster size</strong>. If the number of <strong>Rows</strong> and <strong>Columns</strong> is too large, the geoprocessing tool will fail as it will not be able to produce the output.</p>
 </div>
 </div>
 </div>
