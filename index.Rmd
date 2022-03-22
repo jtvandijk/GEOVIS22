@@ -276,7 +276,7 @@ Each function will result in a slightly different estimation. [Levine (2013)](ht
 
 > The normal distribution weighs all points in the study area, though near points are weighted more highly than distant points. The other four techniques use a circumscribed circle around the grid cell. The uniform distribution weighs all points within the circle equally. The quartic function weighs near points more than far points, but the fall off is gradual. The triangular function weighs near points more than far points within the circle, but the fall off is more rapid. Finally, the negative exponential weighs near points much more highly than far points within the circle and the decay is very rapid.
 
-The kernel density approach generates a grid of density values whose cell size is smaller than that of the kernel window. Each cell is assigned the density value computed for the kernel window centered on that cell. The resulting surface is created from these individually, locally calculated density values. Another way to think about it is as a smoothed histogram, but now created in two-dimensional space. The explanation by *Jake VanderPlas* in his [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html) explains this idea in much more detail and very clearly.
+The kernel density approach generates a grid of density values whose cell size is smaller than that of the kernel window. Each cell is assigned the density value computed for the kernel window centered on that cell. The size of this window is called the **bandwidth**. The resulting surface is created from these individually, locally calculated density values. Another way to think about it is as a smoothed histogram, but now created in two-dimensional space. The explanation by *Jake VanderPlas* in his [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html) explains this idea in much more detail and very clearly.
 
 :::note
 **TL;DR** <br />
@@ -294,21 +294,50 @@ knitr::include_graphics('images/geovis/toolbox.png')
 <br /><br />
 - In the search bar type: *Kernel Density Estimation*.
 - Double click on: **Heatmap (Kernel Density Estimation)**.
-- kernel: set bandwidth - 10km 
-- set grid: 500 (Y)
-- use raw output (number represent counts)
-- run
 
 :::note
 **Note** <br />
-If the **Toolbox** button is not visible it is likely that the **Processing** plugin is not activated. You can activate this as follows:
+If the **Toolbox** button is not visible it is likely that the **Processing** plugin is not properly activated. You can activate this as follows:
 
 - Go to **Plugins** > **Manage and Install Plugins ...**. 
 - Go to the **Installed** tab and type *processing* in the search box. Then tick the box in front of **Processing** off and on again to force reload the **Toolbox**. Click **Close**. [[See screenshot]](https://jtvandijk.github.io/GEOVIS22/images/geovis/processing_plugin.png){target="_blank"}
 :::
 
-## Extract KDE values
-- swop colours (white to black); change minimum value for visualisation
+- In the **Heatmap (Kernel Density Estimation)** dialogue box, select `bearers_of_vandijk` as your **Point Layer**.
+- Change the **Radius** to `10`. Click on the **unit** dropdown menu button and make sure that it is set to *kilometers*.
+- In the **Output raster size** section, change the **Rows** to `500`, the value for **Columns** should update automatically to `310`.
+- Click on the three dots (**...**) next to the **[Save to temporary file]** box and click on **Save to File ...** and navigate to your *working directory*. Create a new folder named `surname_kde` and save the output of this geoprocessing tool as `kde_vandijk_10km`.
+- Click **Save** and click **Run** to calculate the KDE. Click **Close**.
+
+The **GIF** below summarises these steps:
+
+```{r kde-10, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Calculating a KDE with a bandwidth of 10km for the bearers of *Van Dijk*. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_10km.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/kde_10km.gif')
+```
+
+The result is a smoothed version of the spatial point locations that represent all bearers of the surname `Van Dijk`. To be fair: it does look a little bit as if we only changed the symbology. Let's calculate another KDE, but this time we will use a larger bandwidth of `30` kilometres instead of the `10` kilometres we have used previously. The **GIF** below summarises these steps:
+
+```{r kde-30, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Calculating a KDE with a bandwidth of 30km for the bearers of *Van Dijk*. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_30km.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/kde_30km.gif')
+```
+
+Although not exactly pretty, the KDE layers show an estimate of "how many bearers" of *Van Dijk* are expected in each of the individual grid cells of our layer. Currently, as can be seen in the **Layers** panel, for the `kde_vandijk_30km` the highest density is `28.2531`. This highest density seems to be concentrated in London - you can toggle the `gb_cities` layer to confirm.
+
+## Display KDE values
+We now have calculated two KDEs, however, the quick heatmap we created earlier by changing the symbology of our point layer looked much better. Let's do something about this by changing the symbology of our `kde_vandijk_30km` layer. We will also adjust the minimum visible density to only show the areas in which the bearers of *Van Dijk* are mostly concentrated.
+
+- Switch off the visibility of the `kde_vandijk_10km` layer in the **Layers** panel by unticking the checkbox in front of the layer.
+- Right click on the `kde_vandijk_30km` layer in the **Layers** panel and click on **Properties ...**. Here we can change the symbology of the layer.
+- Change the **Color gradient** to *White to black*.
+- Change the minimum and maximum value of this **Color gradient** to `5` and `28.2531`, respectively.
+- Use the **Contrast enhancement** dropdown menu to select the *Stretch and Clip to MinMax* option.
+- Click **Apply**. Click **OK**.
+
+We now have a much better visualisation with darker areas indicating higher densities of the bearers of *Van Dijk*. The **GIF** below summarises these steps:
+
+```{r kde-vis, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Changing the KDE visualisation parameters. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_vis.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/kde_vis.gif')
+```
 
 ## Vector
 - extract values with raster calculators (instead of hiding them by not visualising them)

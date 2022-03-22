@@ -104,7 +104,7 @@
 <ul>
 <li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#kernel-density-estimation"><i class="fa fa-check"></i><b>3.1</b> Kernel Density Estimation</a></li>
 <li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#qgis-processing-toolbox"><i class="fa fa-check"></i><b>3.2</b> QGIS processing toolbox</a></li>
-<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extract-kde-values"><i class="fa fa-check"></i><b>3.3</b> Extract KDE values</a></li>
+<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#display-kde-values"><i class="fa fa-check"></i><b>3.3</b> Display KDE values</a></li>
 <li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.4</b> Vector</a></li>
 <li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
 </ul></li>
@@ -159,7 +159,7 @@ Figure 3.1: Kernel types and their distributions.
 <blockquote>
 <p>The normal distribution weighs all points in the study area, though near points are weighted more highly than distant points. The other four techniques use a circumscribed circle around the grid cell. The uniform distribution weighs all points within the circle equally. The quartic function weighs near points more than far points, but the fall off is gradual. The triangular function weighs near points more than far points within the circle, but the fall off is more rapid. Finally, the negative exponential weighs near points much more highly than far points within the circle and the decay is very rapid.</p>
 </blockquote>
-<p>The kernel density approach generates a grid of density values whose cell size is smaller than that of the kernel window. Each cell is assigned the density value computed for the kernel window centered on that cell. The resulting surface is created from these individually, locally calculated density values. Another way to think about it is as a smoothed histogram, but now created in two-dimensional space. The explanation by <em>Jake VanderPlas</em> in his <a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html">Python Data Science Handbook</a> explains this idea in much more detail and very clearly.</p>
+<p>The kernel density approach generates a grid of density values whose cell size is smaller than that of the kernel window. Each cell is assigned the density value computed for the kernel window centered on that cell. The size of this window is called the <strong>bandwidth</strong>. The resulting surface is created from these individually, locally calculated density values. Another way to think about it is as a smoothed histogram, but now created in two-dimensional space. The explanation by <em>Jake VanderPlas</em> in his <a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html">Python Data Science Handbook</a> explains this idea in much more detail and very clearly.</p>
 <div class="note">
 <p><strong>TL;DR</strong> <br />
 A Kernel Density Estimation (KDE) is the method that underlies the idea of a heatmap: creating a smoothed surface of a set of discrete locations.</p>
@@ -175,25 +175,56 @@ A Kernel Density Estimation (KDE) is the method that underlies the idea of a hea
 <br /><br /></li>
 <li>In the search bar type: <em>Kernel Density Estimation</em>.</li>
 <li>Double click on: <strong>Heatmap (Kernel Density Estimation)</strong>.</li>
-<li>kernel: set bandwidth - 10km</li>
-<li>set grid: 500 (Y)</li>
-<li>use raw output (number represent counts)</li>
-<li>run</li>
 </ul>
 <div class="note">
 <p><strong>Note</strong> <br />
-If the <strong>Toolbox</strong> button is not visible it is likely that the <strong>Processing</strong> plugin is not activated. You can activate this as follows:</p>
+If the <strong>Toolbox</strong> button is not visible it is likely that the <strong>Processing</strong> plugin is not properly activated. You can activate this as follows:</p>
 <ul>
 <li>Go to <strong>Plugins</strong> &gt; <strong>Manage and Install Plugins …</strong>.</li>
 <li>Go to the <strong>Installed</strong> tab and type <em>processing</em> in the search box. Then tick the box in front of <strong>Processing</strong> off and on again to force reload the <strong>Toolbox</strong>. Click <strong>Close</strong>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/processing_plugin.png" target="_blank">[See screenshot]</a></li>
 </ul>
 </div>
-</div>
-<div id="extract-kde-values" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Extract KDE values</h2>
 <ul>
-<li>swop colours (white to black); change minimum value for visualisation</li>
+<li>In the <strong>Heatmap (Kernel Density Estimation)</strong> dialogue box, select <code>bearers_of_vandijk</code> as your <strong>Point Layer</strong>.</li>
+<li>Change the <strong>Radius</strong> to <code>10</code>. Click on the <strong>unit</strong> dropdown menu button and make sure that it is set to <em>kilometers</em>.</li>
+<li>In the <strong>Output raster size</strong> section, change the <strong>Rows</strong> to <code>500</code>, the value for <strong>Columns</strong> should update automatically to <code>310</code>.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Create a new folder named <code>surname_kde</code> and save the output of this geoprocessing tool as <code>kde_vandijk_10km</code>.</li>
+<li>Click <strong>Save</strong> and click <strong>Run</strong> to calculate the KDE. Click <strong>Close</strong>.</li>
 </ul>
+<p>The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kde-10"></span>
+<img src="images/geovis/kde_10km.gif" alt="Calculating a KDE with a bandwidth of 10km for the bearers of *Van Dijk*. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_10km.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 3.2: Calculating a KDE with a bandwidth of 10km for the bearers of <em>Van Dijk</em>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_10km.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>The result is a smoothed version of the spatial point locations that represent all bearers of the surname <code>Van Dijk</code>. To be fair: it does look a little bit as if we only changed the symbology. Let’s calculate another KDE, but this time we will use a larger bandwidth of <code>30</code> kilometres instead of the <code>10</code> kilometres we have used previously. The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kde-30"></span>
+<img src="images/geovis/kde_30km.gif" alt="Calculating a KDE with a bandwidth of 30km for the bearers of *Van Dijk*. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_30km.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 3.3: Calculating a KDE with a bandwidth of 30km for the bearers of <em>Van Dijk</em>. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_30km.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<p>Although not exactly pretty, the KDE layers show an estimate of “how many bearers” of <em>Van Dijk</em> are expected in each of the individual grid cells of our layer. Currently, as can be seen in the <strong>Layers</strong> panel, for the <code>kde_vandijk_30km</code> the highest density is <code>28.2531</code>. This highest density seems to be concentrated in London - you can toggle the <code>gb_cities</code> layer to confirm.</p>
+</div>
+<div id="display-kde-values" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Display KDE values</h2>
+<p>We now have calculated two KDEs, however, the quick heatmap we created earlier by changing the symbology of our point layer looked much better. Let’s do something about this by changing the symbology of our <code>kde_vandijk_30km</code> layer. We will also adjust the minimum visible density to only show the areas in which the bearers of <em>Van Dijk</em> are mostly concentrated.</p>
+<ul>
+<li>Switch off the visibility of the <code>kde_vandijk_10km</code> layer in the <strong>Layers</strong> panel by unticking the checkbox in front of the layer.</li>
+<li>Right click on the <code>kde_vandijk_30km</code> layer in the <strong>Layers</strong> panel and click on <strong>Properties …</strong>. Here we can change the symbology of the layer.</li>
+<li>Change the <strong>Color gradient</strong> to <em>White to black</em>.</li>
+<li>Change the minimum and maximum value of this <strong>Color gradient</strong> to <code>5</code> and <code>28.2531</code>, respectively.</li>
+<li>Use the <strong>Contrast enhancement</strong> dropdown menu to select the <em>Stretch and Clip to MinMax</em> option.</li>
+<li>Click <strong>Apply</strong>. Click <strong>OK</strong>.</li>
+</ul>
+<p>We now have a much better visualisation with darker areas indicating higher densities of the bearers of <em>Van Dijk</em>. The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kde-vis"></span>
+<img src="images/geovis/kde_vis.gif" alt="Changing the KDE visualisation parameters. [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_vis.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 3.4: Changing the KDE visualisation parameters. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/kde_vis.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
 </div>
 <div id="vector" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Vector</h2>

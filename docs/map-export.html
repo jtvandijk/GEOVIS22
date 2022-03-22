@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Map export | Analysis and visualisation of surname data</title>
+  <meta name="description" content="Geovisualisation Spring School." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Map export | Analysis and visualisation of surname data" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://jtvandijk.github.io/GEOG0014/" />
+  
+  <meta property="og:description" content="Geovisualisation Spring School." />
+  <meta name="github-repo" content="jtvandijk/GEOVIS22" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Map export | Analysis and visualisation of surname data" />
+  
+  <meta name="twitter:description" content="Geovisualisation Spring School." />
+  
+
+<meta name="author" content="Created by Justin van Dijk" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="kde-parametrisation.html"/>
+<link rel="next" href="final-considerations.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo">
+<a href=""><img src="images/general/ucl_logo.png">
+</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Welcome</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#background-readings"><i class="fa fa-check"></i>Background readings</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#session-format"><i class="fa fa-check"></i>Session format</a></li>
+</ul></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="1" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>1</b> Loading data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="loading-data.html"><a href="loading-data.html#qgis-installation"><i class="fa fa-check"></i><b>1.1</b> QGIS installation</a></li>
+<li class="chapter" data-level="1.2" data-path="loading-data.html"><a href="loading-data.html#data-preparation"><i class="fa fa-check"></i><b>1.2</b> Data preparation</a></li>
+<li class="chapter" data-level="1.3" data-path="loading-data.html"><a href="loading-data.html#adding-data"><i class="fa fa-check"></i><b>1.3</b> Adding data</a></li>
+<li class="chapter" data-level="1.4" data-path="loading-data.html"><a href="loading-data.html#organising-our-layers"><i class="fa fa-check"></i><b>1.4</b> Organising our layers</a></li>
+<li class="chapter" data-level="1.5" data-path="loading-data.html"><a href="loading-data.html#inspecting-data-in-excel"><i class="fa fa-check"></i><b>1.5</b> Inspecting data in Excel</a></li>
+<li class="chapter" data-level="1.6" data-path="loading-data.html"><a href="loading-data.html#loading-point-data-into-qgis"><i class="fa fa-check"></i><b>1.6</b> Loading point data into QGIS</a></li>
+<li class="chapter" data-level="1.7" data-path="loading-data.html"><a href="loading-data.html#task-s1"><i class="fa fa-check"></i><b>1.7</b> Tasks</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="2" data-path="basic-visualisation.html"><a href="basic-visualisation.html"><i class="fa fa-check"></i><b>2</b> Basic visualisation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-visualisation.html"><a href="basic-visualisation.html#changing-symbologoy"><i class="fa fa-check"></i><b>2.1</b> Changing symbologoy</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-visualisation.html"><a href="basic-visualisation.html#creating-a-heatmap"><i class="fa fa-check"></i><b>2.2</b> Creating a heatmap</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-visualisation.html"><a href="basic-visualisation.html#adding-a-basemap"><i class="fa fa-check"></i><b>2.3</b> Adding a basemap</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-visualisation.html"><a href="basic-visualisation.html#task-s2"><i class="fa fa-check"></i><b>2.4</b> Tasks</a></li>
+</ul></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html"><i class="fa fa-check"></i><b>3</b> KDE parametrisation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#kernel-density-estimation"><i class="fa fa-check"></i><b>3.1</b> Kernel Density Estimation</a></li>
+<li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#qgis-processing-toolbox"><i class="fa fa-check"></i><b>3.2</b> QGIS processing toolbox</a></li>
+<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#display-kde-values"><i class="fa fa-check"></i><b>3.3</b> Display KDE values</a></li>
+<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.4</b> Vector</a></li>
+<li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
+</ul></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="4" data-path="map-export.html"><a href="map-export.html"><i class="fa fa-check"></i><b>4</b> Map export</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="map-export.html"><a href="map-export.html#kde-map"><i class="fa fa-check"></i><b>4.1</b> KDE map</a></li>
+<li class="chapter" data-level="4.2" data-path="map-export.html"><a href="map-export.html#print-layout"><i class="fa fa-check"></i><b>4.2</b> Print layout</a></li>
+<li class="chapter" data-level="4.3" data-path="map-export.html"><a href="map-export.html#task-s4"><i class="fa fa-check"></i><b>4.3</b> Tasks</a></li>
+</ul></li>
+<li class="part"><span><b>Wrapping up</b></span></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html"><i class="fa fa-check"></i>Final considerations</a>
+<ul>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#before-you-leave"><i class="fa fa-check"></i>Before you leave</a></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#further-resources"><i class="fa fa-check"></i>Further resources</a></li>
+<li class="chapter" data-level="" data-path="final-considerations.html"><a href="final-considerations.html#further-questions"><i class="fa fa-check"></i>Further questions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis and visualisation of surname data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="map-export" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Map export</h1>
+<div id="kde-map" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> KDE map</h2>
+<ul>
+<li>Select layers for final map.</li>
+</ul>
+</div>
+<div id="print-layout" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Print layout</h2>
+<p>In this tutorial we have downloaded some surname data, created a spatial data object by loading the data into QGIS, described our data with the help of a Kernel Density Estimation process, and we have looked at some of the styling options. The final step is to finalise the styling and get the map out of QGIS. This is done through the QGIS <strong>Print Layout</strong>:</p>
+<ul>
+<li>Go to <strong>Project</strong> &gt; <strong>New Print Layout …</strong>.</li>
+<li>Give it a name, e.g. <code>kde_map</code>.</li>
+<li>A new window opens up. In the toolbar on the left hand side, click on the <strong>Add map</strong> button:
+<br /><br />
+<img src="images/geovis/add_map.png" width="36" style="display: block; margin: auto;" />
+<br /><br /></li>
+<li>Draw a box on the canvas. The KDE surname map should now appear.</li>
+<li>Using the toolbar on the left hand side, there is several other options such as <strong>Add scale bar</strong>, <strong>Add North Arrow</strong>, and <strong>Add Legend</strong>. <em>There are lots of options to play around with!</em></li>
+<li>Once you are happy with your map, you can save your map by going to <strong>Layout</strong> &gt; <strong>Export as Image …</strong>. If you get a message popping up saying something about “Project Contains WMS Layers” just click on <strong>Close</strong>. Navigate to your <em>working directory</em>, give your map a name and click <strong>Save</strong>. Also click <strong>Save</strong> on the next window that pops up.</li>
+</ul>
+<p>These steps should create an image which you should be able to find in your <em>working directory</em>. The <strong>GIF</strong> below summarises these steps:</p>
+<p>This image is now ready to be used outside QGIS!</p>
+<div class="note">
+<p><strong>Note</strong> <br/>
+There are many more options on how to style the maps, so do play around with colours and settings when making your maps.</p>
+</div>
+</div>
+<div id="task-s4" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Tasks</h2>
+<ul>
+<li>make maps, include title, north arrow, use different projects for different surname data, combine (vector based) representations into one map to make comparisons easier.</li>
+<li>rather than using absolute values you can also scale the values; which may allow for a fairer comparisions when it comes to distrubtions – try it out.</li>
+</ul>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="kde-parametrisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-considerations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtvandijk/GEOVIS22/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["https://github.com/jtvandijk/GEOVIS22/raw/master/index.Rmd"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
