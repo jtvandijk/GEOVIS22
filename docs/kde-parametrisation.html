@@ -104,8 +104,8 @@
 <ul>
 <li class="chapter" data-level="3.1" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#kernel-density-estimation"><i class="fa fa-check"></i><b>3.1</b> Kernel Density Estimation</a></li>
 <li class="chapter" data-level="3.2" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#qgis-processing-toolbox"><i class="fa fa-check"></i><b>3.2</b> QGIS processing toolbox</a></li>
-<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#display-kde-values"><i class="fa fa-check"></i><b>3.3</b> Display KDE values</a></li>
-<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#vector"><i class="fa fa-check"></i><b>3.4</b> Vector</a></li>
+<li class="chapter" data-level="3.3" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#displaying-kde-values"><i class="fa fa-check"></i><b>3.3</b> Displaying KDE values</a></li>
+<li class="chapter" data-level="3.4" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#extracting-kde-values"><i class="fa fa-check"></i><b>3.4</b> Extracting KDE values</a></li>
 <li class="chapter" data-level="3.5" data-path="kde-parametrisation.html"><a href="kde-parametrisation.html#task-s3"><i class="fa fa-check"></i><b>3.5</b> Tasks</a></li>
 </ul></li>
 <li class="part"><span><b>Section 4</b></span></li>
@@ -207,8 +207,8 @@ Figure 3.3: Calculating a KDE with a bandwidth of 30km for the bearers of <em>Va
 </div>
 <p>Although not exactly pretty, the KDE layers show an estimate of “how many bearers” of <em>Van Dijk</em> are expected in each of the individual grid cells of our layer. Currently, as can be seen in the <strong>Layers</strong> panel, for the <code>kde_vandijk_30km</code> the highest density is <code>28.2531</code>. This highest density seems to be concentrated in London - you can toggle the <code>gb_cities</code> layer to confirm.</p>
 </div>
-<div id="display-kde-values" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Display KDE values</h2>
+<div id="displaying-kde-values" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Displaying KDE values</h2>
 <p>We now have calculated two KDEs, however, the quick heatmap we created earlier by changing the symbology of our point layer looked much better. Let’s do something about this by changing the symbology of our <code>kde_vandijk_30km</code> layer. We will also adjust the minimum visible density to only show the areas in which the bearers of <em>Van Dijk</em> are mostly concentrated.</p>
 <ul>
 <li>Switch off the visibility of the <code>kde_vandijk_10km</code> layer in the <strong>Layers</strong> panel by unticking the checkbox in front of the layer.</li>
@@ -226,10 +226,26 @@ Figure 3.4: Changing the KDE visualisation parameters. <a href="https://jtvandij
 </p>
 </div>
 </div>
-<div id="vector" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Vector</h2>
+<div id="extracting-kde-values" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Extracting KDE values</h2>
+<p>Instead of simply updating the KDE values that we are displaying, we can also extract the values of the KDE layer and save these as a separate layer. We can do this with something called the <strong>Raster calculator</strong>. This little tool allows us to only keep the values above a certain threshold. Let’s extract all raster cells where there is at least 5 bearers of <em>Van Dijk</em> expected; similar as to what we just did with your visualisation.</p>
 <ul>
-<li>extract values with raster calculators (instead of hiding them by not visualising them)</li>
+<li>In the <strong>Processing Toolbox</strong> search bar type: <em>Raster calculator</em>.</li>
+<li>Double click on: <strong>Raster calculator</strong>.</li>
+<li>In the <strong>Expression</strong> toolbox type: <code>"kde_vandijk_30km@1 / (kde_vandijk_30km@1 &gt; 5)"</code>. This is to ensure that the calculation will only return values of 5 and above.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>referecne layer(s) (used for automated extend, cellsize and CRS) [optional]</strong> box and tick the box in front of <em>kde_vandijk_30km [EPSG:277000]</em>. Click <strong>OK</strong>.</li>
+<li>In the <strong>Output CRS [optional]</strong> dropdown menu, select <em>Project CRS: EPSG:27700 - OSGB 1936 / British National Grid</em>.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Save the output in your<code>surname_kde</code> folder as <code>kde_vandijk_10km_5min</code>.</li>
+<li>Click <strong>Run</strong>. Click <strong>Close</strong>.</li>
+</ul>
+<p>We have now created a full, separate, new layer, only containing the raster cells where there is at least 5 bearers of <em>Van Dijk</em> expected. The <strong>GIF</strong> below summarises these steps:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rast-calc"></span>
+<img src="images/geovis/rast_calc.gif" alt="Extracting KDE values from our raster layer.  [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/rast_calc.gif){target=&quot;_blank&quot;}" width="850pt" />
+<p class="caption">
+Figure 3.5: Extracting KDE values from our raster layer. <a href="https://jtvandijk.github.io/GEOVIS22/images/geovis/rast_calc.gif" target="_blank">[Enlarge image]</a>
+</p>
+</div>
+<ul>
 <li>raster to vector to create area with at least n number of bearers</li>
 </ul>
 </div>

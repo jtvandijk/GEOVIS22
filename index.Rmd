@@ -323,7 +323,7 @@ knitr::include_graphics('images/geovis/kde_30km.gif')
 
 Although not exactly pretty, the KDE layers show an estimate of "how many bearers" of *Van Dijk* are expected in each of the individual grid cells of our layer. Currently, as can be seen in the **Layers** panel, for the `kde_vandijk_30km` the highest density is `28.2531`. This highest density seems to be concentrated in London - you can toggle the `gb_cities` layer to confirm.
 
-## Display KDE values
+## Displaying KDE values
 We now have calculated two KDEs, however, the quick heatmap we created earlier by changing the symbology of our point layer looked much better. Let's do something about this by changing the symbology of our `kde_vandijk_30km` layer. We will also adjust the minimum visible density to only show the areas in which the bearers of *Van Dijk* are mostly concentrated.
 
 - Switch off the visibility of the `kde_vandijk_10km` layer in the **Layers** panel by unticking the checkbox in front of the layer.
@@ -339,8 +339,24 @@ We now have a much better visualisation with darker areas indicating higher dens
 knitr::include_graphics('images/geovis/kde_vis.gif')
 ```
 
-## Vector
-- extract values with raster calculators (instead of hiding them by not visualising them)
+## Extracting KDE values
+Instead of simply updating the KDE values that we are displaying, we can also extract the values of the KDE layer and save these as a separate layer. We can do this with something called the **Raster calculator**. This little tool allows us to only keep the values above a certain threshold. Let's extract all raster cells where there is at least 5 bearers of *Van Dijk* expected; similar as to what we just did with your visualisation.
+
+- In the **Processing Toolbox** search bar type: *Raster calculator*.
+- Double click on: **Raster calculator**.
+- In the **Expression** toolbox type: `"kde_vandijk_30km@1 / (kde_vandijk_30km@1 > 5)"`. This is to ensure that the calculation will only return values of 5 and above.
+- Click on the three dots (**...**) next to the **referecne layer(s) (used for automated extend, cellsize and CRS) [optional]** box and tick the box in front of *kde_vandijk_30km [EPSG:277000]*. Click **OK**.
+- In the **Output CRS [optional]** dropdown menu, select *Project CRS: EPSG:27700 - OSGB 1936 / British National Grid*.
+- Click on the three dots (**...**) next to the **[Save to temporary file]** box and click on **Save to File ...** and navigate to your *working directory*. Save the output in your`surname_kde` folder as `kde_vandijk_10km_5min`.
+- Click **Run**. Click **Close**.
+
+We have now created a full, separate, new layer, only containing the raster cells where there is at least 5 bearers of *Van Dijk* expected. The **GIF** below summarises these steps:
+
+```{r rast-calc, echo=FALSE, fig.align='center', out.width='850pt', fig.cap='Extracting KDE values from our raster layer.  [[Enlarge image]](https://jtvandijk.github.io/GEOVIS22/images/geovis/rast_calc.gif){target="_blank"}'}
+knitr::include_graphics('images/geovis/rast_calc.gif')
+```
+
+
 - raster to vector to create area with at least n number of bearers
 
 ## Tasks {#task-s3}

@@ -17,6 +17,7 @@ fig:kernel-type
 fig:kde-10
 fig:kde-30
 fig:kde-vis
+fig:rast-calc
 loading-data
 qgis-installation
 data-preparation
@@ -33,8 +34,8 @@ task-s2
 kde-parametrisation
 kernel-density-estimation
 qgis-processing-toolbox
-display-kde-values
-vector
+displaying-kde-values
+extracting-kde-values
 task-s3
 map-export
 kde-map
