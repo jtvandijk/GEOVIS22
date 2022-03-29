@@ -19,7 +19,7 @@ knitr::include_graphics('images/general/surname_welcome.jpeg')
 ```
 <br />
 
-Welcome! In this session of the 2022 International Spring School on Visualisation we will be mapping **surnames** across Great Britain. The Lecture *What’s in a name? Visualising surname geographies in a GIS environment* should have given you a good introduction onto why we would want to do this, but in case you want some further details on previous work using surnames in an analytical context you may want to have a look at some of the papers listed in the **background reading** section listed below.
+Welcome! In this session of the [2022 International Spring School on Visualisation](https://www.geoinformatics.upol.cz/en/iss) (ISSonVis 2022) we will be mapping **surnames** across Great Britain. The Lecture *What’s in a name? Visualising surname geographies in a GIS environment* should have given you a good introduction onto why we would want to do this, but in case you want some further details on previous work using surnames in an analytical context you may want to have a look at some of the papers listed in the **background reading** section listed below.
 
 ### Background readings {-}
 - Cheshire, J. and Longley, P. A. 2011. Identifying spatial concentrations of surnames. *International Journal of Geographical Information Science* 26(2), pp.309-325. [[Link]](https://doi.org/10.1080/13658816.2011.591291){target="_blank"}
@@ -449,7 +449,7 @@ Some tips:
 # Final considerations {-}
 
 ## Before you leave {-}
-[Well done. You made it.](https://www.youtube.com/watch?v=Wmc8bQoL-J0) Unfortunately, we have arrived at the end of this session of the 2022 International Spring School on Visualisation. For everyone that have never made a map before: we hope that you enjoyed the process and continue to develop these skills in any of your future work. For everyone that have made maps before: we hope that you also enjoyed this process and specifically thought about maps and visualisation in a different way than you have done before. 
+[Well done. You made it.](https://www.youtube.com/watch?v=Wmc8bQoL-J0) Unfortunately, we have arrived at the end of this session of the [2022 International Spring School on Visualisation](https://www.geoinformatics.upol.cz/en/iss) (ISSonVis 2022). For everyone that have never made a map before: we hope that you enjoyed the process and continue to develop these skills in any of your future work. For everyone that have made maps before: we hope that you also enjoyed this process and specifically thought about maps and visualisation in a different way than you have done before. 
 
 ## Further resources {-}
 If you are interested in developing your spatial analysis / visualisation skills / GIS skills further, more generally, do have a look at some of the excellent (open source) resources that are available for QGIS. If you are feeling more adventurous and want to move to some programming, you can also check out some more of the geospatial goodness that is available online (see table below).
