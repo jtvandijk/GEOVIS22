@@ -435,8 +435,8 @@ Although the map in the example probably needs a little TLC, the image is now re
 There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps. For more details and suggestions: the [QGIS manual](https://docs.qgis.org/3.16/en/docs/training_manual/index.html) is an excellent resource for any information on how to change specific elements of your map layout.
 :::
 
-## Tasks {#task-s4}
-Now we have been through all the steps from data loading, to making a quick visualisation and executing a full Kernel Density Estimation, you can now try to repeat all the elements that we have covered with the surname datasets of *Smith* and *Novak* in order to create a surname density maps for these two spatially heterogeneous surnames.
+## Challenge {#task-s4}
+Now we have been through all the steps from data loading, to making a quick visualisation and executing a full Kernel Density Estimation, you are now challenged to create two surname density maps using the surname datasets of *Smith* and *Novak*. 
 
 Some tips:
 
@@ -444,6 +444,8 @@ Some tips:
 - Play around with the kernel type and bandwidth - you may want to use a different bandwidth for each of the names.
 - Refer to the [QGIS manual](https://docs.qgis.org/3.16/en/docs/training_manual/index.html) for adjusting specific elements of your map layout.
 - Google is your friend. When working in a GIS-environment you often will encounter some challenges - but in many cases someone else has had the same challenges and posted about them online!
+
+Who has made the nicest visualisation? Do share your maps with the other participants of the [ISSonVis 2022](https://www.geoinformatics.upol.cz/en/iss)!
 
 # (PART\*) Wrapping up {-}
 # Final considerations {-}
