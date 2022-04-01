@@ -435,7 +435,7 @@ Although the map in the example probably needs a little TLC, the image is now re
 There are many, many more options on how to style the maps, so do play around with colours and settings when making your maps. For more details and suggestions: the [QGIS manual](https://docs.qgis.org/3.16/en/docs/training_manual/index.html) is an excellent resource for any information on how to change specific elements of your map layout.
 :::
 
-## Challenge {#task-s4}
+## Visualisation challenge {#task-s4}
 Now we have been through all the steps from data loading, to making a quick visualisation and executing a full Kernel Density Estimation, you are now challenged to create two surname density maps using the surname datasets of *Smith* and *Novak*. 
 
 Some tips:
