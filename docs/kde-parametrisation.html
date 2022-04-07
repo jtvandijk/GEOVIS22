@@ -234,7 +234,7 @@ Figure 3.4: Changing the KDE visualisation parameters. <a href="https://jtvandij
 <li>In the <strong>Expression</strong> toolbox type: <code>"kde_vandijk_30km@1" / ("kde_vandijk_30km@1" &gt; 5)</code>. This is to ensure that the calculation will only return values above 5.</li>
 <li>Click on the three dots (<strong>…</strong>) next to the <strong>Reference layer(s) (used for automated extend, cellsize and CRS) [optional]</strong> box and tick the box in front of <code>kde_vandijk_30km [EPSG:277000]</code>. Click <strong>OK</strong>.</li>
 <li>In the <strong>Output CRS [optional]</strong> dropdown menu, select <code>Project CRS: EPSG:27700 - OSGB 1936 / British National Grid</code>.</li>
-<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Save the output in your<code>surname_kde</code> folder as <code>kde_vandijk_10km_5min</code>.</li>
+<li>Click on the three dots (<strong>…</strong>) next to the <strong>[Save to temporary file]</strong> box and click on <strong>Save to File …</strong> and navigate to your <em>working directory</em>. Save the output in your<code>surname_kde</code> folder as <code>kde_vandijk_30km_5min</code>.</li>
 <li>Click <strong>Run</strong>. Click <strong>Close</strong>.</li>
 </ul>
 <p>We have now created a full, separate, new layer, only containing the raster cells where there is at least 5 bearers of <em>Van Dijk</em> expected. All steps are recorded in the <strong>GIF</strong> below:</p>
@@ -247,7 +247,7 @@ Figure 3.5: Extracting KDE values from our raster layer. <a href="https://jtvand
 <p>In a final step, we may want to change the data type in which our selected KDE values is stored, for instance, because we want to visualise the KDE values as <a href="https://en.wikipedia.org/wiki/Contour_line">contour lines</a> / with <a href="https://en.wikipedia.org/wiki/Contour_line">contour lines</a>. We can do this as follows:</p>
 <ul>
 <li>In the top menu bar click on <strong>Raster</strong> &gt; <strong>Extraction</strong> &gt; <strong>Contour …</strong>.</li>
-<li>Select <code>kde_vandijk_10km_5min [EPSG:277000]</code> as the <strong>Input layer</strong>.</li>
+<li>Select <code>kde_vandijk_30km_5min [EPSG:277000]</code> as the <strong>Input layer</strong>.</li>
 <li>In the <strong>Interval between contour lines</strong> box, leave the value set as <code>10</code>.</li>
 </ul>
 <div class="note">

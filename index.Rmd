@@ -351,7 +351,7 @@ Instead of simply updating the KDE values that we are displaying, we can also ex
 - In the **Expression** toolbox type: `"kde_vandijk_30km@1" / ("kde_vandijk_30km@1" > 5)`. This is to ensure that the calculation will only return values above 5.
 - Click on the three dots (**...**) next to the **Reference layer(s) (used for automated extend, cellsize and CRS) [optional]** box and tick the box in front of `kde_vandijk_30km [EPSG:277000]`. Click **OK**.
 - In the **Output CRS [optional]** dropdown menu, select `Project CRS: EPSG:27700 - OSGB 1936 / British National Grid`.
-- Click on the three dots (**...**) next to the **[Save to temporary file]** box and click on **Save to File ...** and navigate to your *working directory*. Save the output in your`surname_kde` folder as `kde_vandijk_10km_5min`.
+- Click on the three dots (**...**) next to the **[Save to temporary file]** box and click on **Save to File ...** and navigate to your *working directory*. Save the output in your`surname_kde` folder as `kde_vandijk_30km_5min`.
 - Click **Run**. Click **Close**.
 
 We have now created a full, separate, new layer, only containing the raster cells where there is at least 5 bearers of *Van Dijk* expected. All steps are recorded in the **GIF** below:
@@ -363,7 +363,7 @@ knitr::include_graphics('images/geovis/rast_calc.gif')
 In a final step, we may want to change the data type in which our selected KDE values is stored, for instance, because we want to visualise the KDE values as [contour lines](https://en.wikipedia.org/wiki/Contour_line) / with [contour lines](https://en.wikipedia.org/wiki/Contour_line). We can do this as follows:
 
 - In the top menu bar click on **Raster** > **Extraction** > **Contour ...**. 
-- Select `kde_vandijk_10km_5min [EPSG:277000]` as the **Input layer**.
+- Select `kde_vandijk_30km_5min [EPSG:277000]` as the **Input layer**.
 - In the **Interval between contour lines** box, leave the value set as `10`. 
 
 :::note
@@ -445,7 +445,7 @@ Some tips:
 - Refer to the [QGIS manual](https://docs.qgis.org/3.16/en/docs/training_manual/index.html) for adjusting specific elements of your map layout.
 - Google is your friend. When working in a GIS-environment you often will encounter some challenges - but in many cases someone else has had the same challenges and posted about them online!
 
-Who has made the nicest visualisation? Do share your maps with the other participants of the [ISSonVis 2022](https://www.geoinformatics.upol.cz/en/iss)!
+Who has made the nicest visualisation? Do share your maps with the other participants of the [ISSonVis 2022](https://www.geoinformatics.upol.cz/en/iss) in the Teams Channel!
 
 # (PART\*) Wrapping up {-}
 # Final considerations {-}
